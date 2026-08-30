@@ -81,7 +81,7 @@ async function createCache(
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
       model: `models/${model}`,
-      displayName: "opendiagram-diagram-agent",
+      displayName: "opendraw-diagram-agent",
       systemInstruction: body.systemInstruction,
       tools: body.tools,
       toolConfig: body.toolConfig,

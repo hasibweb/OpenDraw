@@ -1,4 +1,4 @@
-import type { DiagramSpec } from "@OpenDiagram/harness";
+import type { DiagramSpec } from "@opendraw/harness";
 
 /**
  * Serializes a canvas diagram as a header-once pipe table instead of JSON.

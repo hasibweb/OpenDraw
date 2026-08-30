@@ -1,5 +1,5 @@
 {
-  "name": "@OpenDiagram/auth",
+  "name": "@opendraw/auth",
   "type": "module",
   "exports": {
     ".": {
@@ -11,8 +11,8 @@
   },
   "scripts": {},
   "dependencies": {
-    "@OpenDiagram/db": "workspace:*",
-    "@OpenDiagram/env": "workspace:*",
+    "@opendraw/db": "workspace:*",
+    "@opendraw/env": "workspace:*",
     "better-auth": "catalog:",
     "dotenv": "catalog:",
     "evlog": "catalog:",
@@ -20,7 +20,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@OpenDiagram/config": "workspace:*",
+    "@opendraw/config": "workspace:*",
     "typescript": "catalog:"
   }
 }

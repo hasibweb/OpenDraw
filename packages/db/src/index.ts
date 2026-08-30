@@ -1,4 +1,4 @@
-import { env } from "@OpenDiagram/env/server";
+import { env } from "@opendraw/env/server";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 

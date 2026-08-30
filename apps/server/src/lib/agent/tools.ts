@@ -9,8 +9,8 @@ import {
   type DiagramSpec,
   type RenderSkeleton,
   type Theme,
-} from "@OpenDiagram/harness";
-import { env } from "@OpenDiagram/env/server";
+} from "@opendraw/harness";
+import { env } from "@opendraw/env/server";
 import { tool, type Tool } from "ai";
 import type { RequestLogger } from "evlog";
 import { z } from "zod";

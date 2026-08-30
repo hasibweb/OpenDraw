@@ -1,4 +1,4 @@
-import { diagramSpecSchema, themes } from "@OpenDiagram/harness";
+import { diagramSpecSchema, themes } from "@opendraw/harness";
 import { convertToModelMessages, createUIMessageStreamResponse, type UIMessage } from "ai";
 import type { EvlogVariables } from "evlog/hono";
 import { Hono } from "hono";

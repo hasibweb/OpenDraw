@@ -10,5 +10,5 @@ export default defineConfig({
   // That is why `pg` is a dependency of this app that it never imports: tsdown
   // externalizes package.json deps, which is the only reason `db` spans exist.
   // https://github.com/getsentry/sentry-javascript/issues/14028
-  noExternal: [/@OpenDiagram\/.*/],
+  noExternal: [/@opendraw\/.*/],
 });

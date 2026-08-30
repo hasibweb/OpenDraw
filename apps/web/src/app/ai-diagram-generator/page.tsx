@@ -7,20 +7,20 @@ import { ProcessCardsFan } from "@/components/marketing/process-cards-fan";
 import { assetUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "AI System Architecture Diagram Generator | OpenDiagram",
+  title: "AI System Architecture Diagram Generator | OpenDraw",
   description:
     "Describe a software system in plain language and get an editable architecture diagram — services, connections, and data flows, generated from a prompt.",
   alternates: { canonical: "/ai-architecture-diagram-generator" },
   openGraph: {
     type: "website",
     url: "/ai-architecture-diagram-generator",
-    title: "AI System Architecture Diagram Generator | OpenDiagram",
+    title: "AI System Architecture Diagram Generator | OpenDraw",
     description:
       "Describe a software system in plain language and get an editable architecture diagram — services, connections, and data flows, generated from a prompt.",
     images: [
       {
         url: assetUrl("/marketing/examples/main-example.jpg"),
-        alt: "AI-generated software architecture diagram open for editing in OpenDiagram",
+        alt: "AI-generated software architecture diagram open for editing in OpenDraw",
       },
     ],
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "software architecture diagram generator",
     "architecture diagram from text",
     "AI architecture diagram generator",
-    "OpenDiagram",
+    "OpenDraw",
   ],
 };
 
@@ -105,7 +105,7 @@ export default function AIArchitectureDiagramGeneratorPage() {
             <SystemPromptCard prompt="Generate an internal system architecture diagram" />
             <div>
               <p className="text-lg leading-[1.7] text-black/60">
-                Describe how your software should behave. OpenDiagram turns the requirements into a
+                Describe how your software should behave. OpenDraw turns the requirements into a
                 visual draft you can inspect, rearrange, and refine with AI.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">

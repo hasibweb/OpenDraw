@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.7
-FROM oven/bun:1-slim
+FROM oven/bun:1.3.5-slim
 
 WORKDIR /app
 
@@ -12,7 +12,11 @@ RUN apt-get update \
 ENV SKIP_ENV_VALIDATION=1
 
 COPY . .
-RUN --mount=type=cache,target=/root/.bun/install/cache bun install
+RUN --mount=type=cache,id=bun-install-cache,target=/root/.bun/install/cache,sharing=locked \
+    bun install --frozen-lockfile
+
+ARG OPENDRAW_RELEASE=development
+ENV OPENDRAW_RELEASE=$OPENDRAW_RELEASE
 
 ENV NODE_ENV=production
 RUN bun run build --filter=server

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { env } from "@OpenDiagram/env/web";
+import { env } from "@opendraw/env/web";
 import { createGuestProjectDraft, saveGuestProjectDraft } from "@/lib/guest-drafts";
 import { createProject, createProjectFile, type SavedProjectFile } from "@/lib/projects-client";
 import type { DashboardData } from "./use-dashboard-data";

@@ -1,4 +1,4 @@
-import { env } from "@OpenDiagram/env/web";
+import { env } from "@opendraw/env/web";
 
 export type BillingState = {
   /** False on a self-hosted instance with no Dodo keys — hide all upgrade UI. */

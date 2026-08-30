@@ -1,5 +1,5 @@
-import { and, db, eq } from "@OpenDiagram/db";
-import { project } from "@OpenDiagram/db/schema/projects";
+import { and, db, eq } from "@opendraw/db";
+import { project } from "@opendraw/db/schema/projects";
 import { Hono } from "hono";
 import { streamSSE } from "hono/streaming";
 import { takeAiGrant } from "../../lib/ai-grant";

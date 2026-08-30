@@ -1,5 +1,5 @@
-import { and, db, desc, eq, sql } from "@OpenDiagram/db";
-import { project, projectFile, projectFileContent } from "@OpenDiagram/db/schema/projects";
+import { and, db, desc, eq, sql } from "@opendraw/db";
+import { project, projectFile, projectFileContent } from "@opendraw/db/schema/projects";
 import { projectFileContentJoin } from "./project-file-content";
 
 /**

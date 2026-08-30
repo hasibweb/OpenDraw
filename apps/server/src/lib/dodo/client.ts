@@ -1,7 +1,7 @@
 /**
  * The Dodo Payments client, or null when billing isn't configured.
  *
- * Null is a supported state, not a failure: a self-hosted OpenDiagram has no
+ * Null is a supported state, not a failure: a self-hosted OpenDraw has no
  * reason to set up a payment processor, so the billing routes 404 and everyone
  * resolves to the Free plan. That's why every DODO_* var is optional in
  * packages/env -- the app must still build and boot without them.
@@ -10,7 +10,7 @@
  * SDK's own `'test_mode' | 'live_mode'` values; there is deliberately no mapping
  * layer to drift out of sync.
  */
-import { env } from "@OpenDiagram/env/server";
+import { env } from "@opendraw/env/server";
 import DodoPayments from "dodopayments";
 
 let cached: DodoPayments | null | undefined;

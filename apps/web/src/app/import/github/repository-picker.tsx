@@ -35,8 +35,8 @@ export function RepositoryPicker({
           Select a repository
         </h2>
         <p className="text-[15px] leading-[1.7] text-od-ink-muted">
-          Choose one of your GitHub repositories. OpenDiagram will use this context to prepare
-          diagrams and documentation.
+          Choose one of your GitHub repositories. OpenDraw will use this context to prepare diagrams
+          and documentation.
         </p>
       </div>
 

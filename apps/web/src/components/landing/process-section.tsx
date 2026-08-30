@@ -15,7 +15,7 @@ function Principle({ paddingTop, title, description }: PrincipleProps) {
       <p className="text-base leading-[1.7]">{description}</p>
       <div className="flex flex-col">
         <span className="font-semibold">{title}</span>
-        <span className="text-sm text-black/50">OpenDiagram principle</span>
+        <span className="text-sm text-black/50">OpenDraw principle</span>
       </div>
     </div>
   );
@@ -33,7 +33,7 @@ const processCards = [
     number: "2",
     title: "Shape",
     description:
-      "OpenDiagram turns your intent into an editable visual draft with services, flows, and system context.",
+      "OpenDraw turns your intent into an editable visual draft with services, flows, and system context.",
     rotation: 9,
   },
   {
@@ -67,7 +67,7 @@ export function ProcessSection() {
             <Principle
               paddingTop="80px"
               title="Start with intent, not boxes"
-              description="Describe the behavior you want before arranging components. OpenDiagram gives the conversation a visual form your team can inspect together."
+              description="Describe the behavior you want before arranging components. OpenDraw gives the conversation a visual form your team can inspect together."
             />
           </ScrollReveal>
           <span className="w-px self-stretch bg-black/25 max-lg:hidden" />

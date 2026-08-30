@@ -11,19 +11,19 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/blog",
-    title: "Blog | OpenDiagram",
+    title: "Blog | OpenDraw",
     description:
       "Thoughts on automated software architecture design, interactive layout engineering, and the future of vibe diagramming.",
     images: [
       {
         url: assetUrl("/brand/mascot.png"),
-        alt: "OpenDiagram mascot",
+        alt: "OpenDraw mascot",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog | OpenDiagram",
+    title: "Blog | OpenDraw",
     description:
       "Thoughts on automated software architecture design, interactive layout engineering, and the future of vibe diagramming.",
     images: [assetUrl("/brand/mascot.png")],
@@ -33,13 +33,13 @@ export const metadata: Metadata = {
 const blogStructuredData = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  name: "OpenDiagram Blog",
+  name: "OpenDraw Blog",
   url: `${SITE_URL.href}blog`,
   description:
     "Thoughts on automated software architecture design, interactive layout engineering, and the future of vibe diagramming.",
   publisher: {
     "@type": "Organization",
-    name: "OpenDiagram",
+    name: "OpenDraw",
     url: SITE_URL.href,
   },
 };

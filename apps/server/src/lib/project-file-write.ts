@@ -1,4 +1,4 @@
-import { db, sql } from "@OpenDiagram/db";
+import { db, sql } from "@opendraw/db";
 import type { SQL } from "drizzle-orm";
 
 /**

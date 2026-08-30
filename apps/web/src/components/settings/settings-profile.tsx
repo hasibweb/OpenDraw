@@ -18,7 +18,7 @@ export function SettingsHeader() {
       <Link
         href="/dashboard"
         className="inline-flex min-w-0 items-center gap-2.5 rounded-lg outline-none transition-opacity hover:opacity-80 focus-visible:ring-2 focus-visible:ring-od-ink/20"
-        aria-label="OpenDiagram home"
+        aria-label="OpenDraw home"
       >
         <Image
           src={assetUrl("/brand/mascot.png")}
@@ -28,7 +28,7 @@ export function SettingsHeader() {
           className="size-8 shrink-0"
         />
         <span className="truncate text-[17px] font-semibold tracking-tight text-od-ink">
-          OpenDiagram
+          OpenDraw
         </span>
       </Link>
 

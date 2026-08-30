@@ -1,6 +1,6 @@
-import { auth } from "@OpenDiagram/auth";
-import { and, db, eq, ne } from "@OpenDiagram/db";
-import { githubImportJob, project, projectFile } from "@OpenDiagram/db/schema/projects";
+import { auth } from "@opendraw/auth";
+import { and, db, eq, ne } from "@opendraw/db";
+import { githubImportJob, project, projectFile } from "@opendraw/db/schema/projects";
 import { z } from "zod";
 import { Hono } from "hono";
 import type { Context } from "hono";
@@ -55,6 +55,7 @@ const importJobs = new Map<string, GitHubImportJob>();
 const jobEmitters = new Map<string, (job: GitHubImportJob) => void>();
 const IMPORT_JOB_STALE_MS = 30 * 60 * 1000;
 
+/** Repository picker data. Public repositories only, ordered by GitHub activity. */
 githubRoute.get("/repositories", async (c) => {
   const token = await getGitHubAccessToken(c);
 
@@ -71,7 +72,7 @@ githubRoute.get("/repositories", async (c) => {
         headers: {
           Accept: "application/vnd.github+json",
           Authorization: `Bearer ${token}`,
-          "User-Agent": "OpenDiagram",
+          "User-Agent": "OpenDraw",
           "X-GitHub-Api-Version": "2022-11-28",
         },
       },
@@ -90,7 +91,7 @@ githubRoute.get("/repositories", async (c) => {
   let repositories: GitHubRepository[];
 
   try {
-    repositories = (await response.json()) as GitHubRepository[];
+    repositories = ((await response.json()) as GitHubRepository[]).filter((repo) => !repo.private);
   } catch {
     return c.json({ error: "Invalid response from GitHub." }, 502);
   }
@@ -112,8 +113,11 @@ githubRoute.get("/repositories", async (c) => {
   });
 });
 
+/** Legacy import entrypoint retained for existing clients. */
 githubRoute.post("/import", importGitHubRepository);
+/** Starts and streams a public repository import for the signed-in user. */
 githubImportRoute.post("/github", importGitHubRepository);
+/** Reconnects an interrupted import UI to its own latest job state. */
 githubImportRoute.get("/github/:jobId", async (c) => {
   const session = await getRequestSession(c);
   if (!session) return c.json({ error: "Connect GitHub before importing repositories." }, 401);
@@ -161,7 +165,7 @@ async function importGitHubRepository(c: Context) {
       headers: {
         Accept: "application/vnd.github+json",
         Authorization: `Bearer ${authResult.token}`,
-        "User-Agent": "OpenDiagram",
+        "User-Agent": "OpenDraw",
         "X-GitHub-Api-Version": "2022-11-28",
       },
     });
@@ -189,6 +193,10 @@ async function importGitHubRepository(c: Context) {
     repo = (await repoResponse.json()) as GitHubRepository;
   } catch {
     return c.json({ error: "Invalid response from GitHub." }, 502);
+  }
+
+  if (repo.private) {
+    return c.json({ error: "OpenDraw imports public GitHub repositories only." }, 403);
   }
 
   const { job, isNew } = await createImportJob({

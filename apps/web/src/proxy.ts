@@ -1,4 +1,4 @@
-import { env } from "@OpenDiagram/env/web";
+import { env } from "@opendraw/env/web";
 import { getSessionCookie } from "better-auth/cookies";
 import { NextResponse, type NextRequest } from "next/server";
 

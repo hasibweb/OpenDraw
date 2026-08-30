@@ -12,7 +12,7 @@ if (!baseURL) {
 export const authClient = createAuthClient({ baseURL });
 
 const DEFAULT_FRONTEND_PATH = "/dashboard";
-const FRONTEND_PATH_BASE = "https://frontend.opendiagram.invalid";
+const FRONTEND_PATH_BASE = "https://frontend.opendraw.invalid";
 
 function hasControlCharacter(value: string): boolean {
   for (const character of value) {

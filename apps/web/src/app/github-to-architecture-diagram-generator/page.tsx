@@ -8,18 +8,18 @@ import { assetUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "GitHub to Architecture Diagram Generator",
   description:
-    "Connect a public GitHub repository, detect its services and dependencies, and prepare an editable architecture workspace in OpenDiagram.",
+    "Connect a public GitHub repository, detect its services and dependencies, and prepare an editable architecture workspace in OpenDraw.",
   alternates: { canonical: "/github-to-architecture-diagram-generator" },
   openGraph: {
     type: "website",
     url: "/github-to-architecture-diagram-generator",
-    title: "GitHub to Architecture Diagram Generator | OpenDiagram",
+    title: "GitHub to Architecture Diagram Generator | OpenDraw",
     description:
       "Move from repository structure to an architecture workspace your team can inspect and refine.",
     images: [
       {
         url: assetUrl("/brand/mascot.png"),
-        alt: "OpenDiagram mascot for GitHub-to-architecture workspace",
+        alt: "OpenDraw mascot for GitHub-to-architecture workspace",
       },
     ],
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "codebase architecture diagram",
     "repository architecture visualization",
     "software architecture from GitHub",
-    "OpenDiagram",
+    "OpenDraw",
   ],
 };
 
@@ -38,7 +38,7 @@ const importStepCards = [
     number: "1",
     title: "Connect GitHub",
     description:
-      "Authorize GitHub for repository access. OpenDiagram currently lists public repositories available to your account.",
+      "Authorize GitHub for repository access. OpenDraw currently lists public repositories available to your account.",
     rotation: -5,
   },
   {
@@ -52,7 +52,7 @@ const importStepCards = [
     number: "3",
     title: "Open the workspace",
     description:
-      "OpenDiagram reads repository structure, detects services and dependencies, and prepares a project for generated diagrams and documentation.",
+      "OpenDraw reads repository structure, detects services and dependencies, and prepares a project for generated diagrams and documentation.",
     rotation: -3,
   },
 ] as const;
@@ -64,9 +64,9 @@ const questions = [
       "The current import flow supports public repositories. Connect GitHub, then choose from the repositories available in the picker or enter an owner/repository name.",
   },
   {
-    question: "Does OpenDiagram change my repository?",
+    question: "Does OpenDraw change my repository?",
     answer:
-      "No. Repository import reads project context to prepare an OpenDiagram workspace. It does not commit changes or write files back to GitHub.",
+      "No. Repository import reads project context to prepare an OpenDraw workspace. It does not commit changes or write files back to GitHub.",
   },
   {
     question: "What should engineers review after import?",

@@ -103,8 +103,6 @@ const avatarImages = [
 ];
 
 export function HeroSection() {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <LazyMotion features={domAnimation}>
       <section className="relative flex w-full flex-col items-center justify-center px-[120px] max-lg:px-12 max-md:px-6">
@@ -188,29 +186,15 @@ export function HeroSection() {
           </div>
 
           <div className="hero-copy mt-12 w-full max-w-[1200px] overflow-hidden rounded-lg border border-black/10 shadow-2xl">
-            {shouldReduceMotion ? (
-              <Image
-                src={assetUrl("/marketing/slideshow/diagram_sample.png")}
-                alt="Creating and editing a chat app architecture diagram in OpenDiagram"
-                width={1280}
-                height={720}
-                sizes="(max-width: 1200px) 100vw, 1200px"
-                className="aspect-video w-full rounded-lg bg-white object-cover"
-              />
-            ) : (
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                aria-label="Creating and editing a chat app architecture diagram in OpenDiagram"
-                className="aspect-video w-full rounded-lg bg-white object-cover"
-              >
-                <source src={assetUrl("/marketing/hero/creation-flow.webm")} type="video/webm" />
-                <source src={assetUrl("/marketing/hero/creation-flow.mp4")} type="video/mp4" />
-              </video>
-            )}
+            <Image
+              src={assetUrl("/marketing/homepage-showcase.png")}
+              alt="OpenDraw workspace editing an event-driven SaaS system architecture"
+              width={1672}
+              height={941}
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              className="h-auto w-full rounded-lg bg-white object-contain"
+              priority
+            />
           </div>
         </div>
       </section>

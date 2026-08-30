@@ -3,12 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { assetUrl } from "@/lib/site";
+import { assetUrl, GITHUB_URL } from "@/lib/site";
 
 const navItems = [
-  { label: "Features", href: "/features" },
-  { label: "About", href: "/about" },
-  { label: "GitHub", href: "https://github.com/Itz-Agasta/OpenDiagram" },
+  { label: "Features", href: "/features", external: false },
+  { label: "About", href: "/about", external: false },
+  { label: "GitHub", href: GITHUB_URL, external: true },
 ];
 
 export function Header() {
@@ -28,7 +28,7 @@ export function Header() {
             height={30}
             className="h-6 w-6 shrink-0 object-contain"
           />
-          OpenDiagram
+          OpenDraw
         </Link>
         <nav
           aria-label="Primary navigation"
@@ -38,6 +38,8 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
               className="rounded-full px-4 py-2 text-sm transition-colors hover:text-black/60"
             >
               {item.label}
@@ -86,6 +88,8 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
                 onClick={() => setOpen(false)}
                 className="block rounded-md px-4 py-3 text-sm transition-colors hover:bg-neutral-100"
               >

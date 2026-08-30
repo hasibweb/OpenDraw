@@ -5,9 +5,9 @@
  * creation quota.
  */
 import { createGoogle } from "@ai-sdk/google";
-import { and, db, eq } from "@OpenDiagram/db";
-import { userAiProvider } from "@OpenDiagram/db/schema/ai";
-import { env } from "@OpenDiagram/env/server";
+import { and, db, eq } from "@opendraw/db";
+import { userAiProvider } from "@opendraw/db/schema/ai";
+import { env } from "@opendraw/env/server";
 import type { LanguageModel } from "ai";
 import { createCachingFetch } from "../agent/cache";
 import { decryptSecret } from "./encrypt";

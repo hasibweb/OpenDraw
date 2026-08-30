@@ -7,7 +7,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { assetUrl } from "@/lib/site";
 
 /**
- * Narrative: OpenDiagram mascot gathers scattered knowledge into one workspace.
+ * Narrative: OpenDraw mascot gathers scattered knowledge into one workspace.
  * Entrance once; ambient then quiet. B&W + mascot.png + Phosphor icons.
  */
 
@@ -306,7 +306,7 @@ export function ScatteredKnowledgeIllustration() {
     <div
       className="relative aspect-[16/10] w-full overflow-hidden rounded-[8px] bg-[#f7f7f5]"
       role="img"
-      aria-label="OpenDiagram mascot connecting screenshots, repositories, documents, and chat into one architecture workspace"
+      aria-label="OpenDraw mascot connecting screenshots, repositories, documents, and chat into one architecture workspace"
     >
       <div
         aria-hidden="true"

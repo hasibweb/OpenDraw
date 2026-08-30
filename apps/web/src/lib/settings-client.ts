@@ -1,4 +1,4 @@
-import { env } from "@OpenDiagram/env/web";
+import { env } from "@opendraw/env/web";
 
 export type CatalogModel = { id: string; label: string };
 

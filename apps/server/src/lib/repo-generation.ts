@@ -1,7 +1,7 @@
-import { and, db, desc, eq, or } from "@OpenDiagram/db";
-import { project, projectFile, projectFileContent } from "@OpenDiagram/db/schema/projects";
+import { and, db, desc, eq, or } from "@opendraw/db";
+import { project, projectFile, projectFileContent } from "@opendraw/db/schema/projects";
 import { projectFileContentJoin, writeProjectFileContent } from "./project-file-content";
-import { layoutDiagram, renderToExcalidraw, type DiagramSpec } from "@OpenDiagram/harness";
+import { layoutDiagram, renderToExcalidraw, type DiagramSpec } from "@opendraw/harness";
 import { iconRegistry } from "./icons/registry";
 import { generateArchitectureDoc, generateDiagramSpec, type AiCallOptions } from "./repo-ai";
 import { getProjectContext } from "./project-context";
@@ -609,7 +609,7 @@ async function runRepoGenerationJob(
       }
       if (!layoutSucceeded) {
         // Neutral fallback when AI generation/layout fails. Deliberately
-        // generic: the old hardcoded specs described OpenDiagram's own stack
+        // generic: the old hardcoded specs described OpenDraw's own stack
         // (Hono/Bun/Supabase/Gemini) and were shown for every imported repo,
         // which is wrong output. The renderer owns colors/icons.
         const spec = buildFallbackDiagramSpec(item);

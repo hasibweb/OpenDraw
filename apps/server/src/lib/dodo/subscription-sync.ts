@@ -11,13 +11,13 @@
  * calling in). Entitlement follows what Dodo says happened, never what a client
  * claims -- which is why neither caller passes anything a browser supplied.
  */
-import { and, db, eq, sql } from "@OpenDiagram/db";
-import { user } from "@OpenDiagram/db/schema/auth";
+import { and, db, eq, sql } from "@opendraw/db";
+import { user } from "@opendraw/db/schema/auth";
 import {
   subscription,
   subscriptionStatuses,
   type SubscriptionStatus,
-} from "@OpenDiagram/db/schema/billing";
+} from "@opendraw/db/schema/billing";
 import type { Dispute } from "dodopayments/resources/disputes";
 import type { Refund } from "dodopayments/resources/refunds";
 import type { Subscription } from "dodopayments/resources/subscriptions";

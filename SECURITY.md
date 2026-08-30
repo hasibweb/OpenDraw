@@ -2,13 +2,13 @@
 
 ## Supported versions
 
-OpenDiagram is pre-1.0 and moves fast. Only the latest `main` receives security fixes.
+OpenDraw is pre-1.0 and moves fast. Only the latest `main` receives security fixes.
 
 ## Reporting a vulnerability
 
 **Do not open a public issue.**
 
-Report privately through [GitHub Security Advisories](https://github.com/Itz-Agasta/OpenDiagram/security/advisories/new), or email **admin@opendiagram.ink**.
+Report privately through [GitHub Security Advisories](https://github.com/hasibweb/OpenDraw/security/advisories/new), or email **support@hasibweb.com**.
 
 Please include:
 
@@ -29,4 +29,4 @@ Areas we consider especially sensitive:
 
 ## Self-hosting
 
-If you self-host OpenDiagram, you are responsible for your own deployment security: keep secrets out of version control, restrict database network access, and set a strong `BETTER_AUTH_SECRET`. Never commit a populated `.env`.
+If you self-host OpenDraw, you are responsible for your own deployment security: keep secrets out of version control, restrict database network access, and set a strong `BETTER_AUTH_SECRET`. Never commit a populated `.env`.

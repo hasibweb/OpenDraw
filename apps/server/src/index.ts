@@ -1,5 +1,5 @@
-import { auth } from "@OpenDiagram/auth";
-import { env } from "@OpenDiagram/env/server";
+import { auth } from "@opendraw/auth";
+import { env } from "@opendraw/env/server";
 import { sentry } from "@sentry/hono/bun";
 import { initLogger } from "evlog";
 import { createFsDrain } from "evlog/fs";
@@ -19,7 +19,7 @@ import { usageRoute } from "./routes/usage";
 import { dodoWebhookRoute } from "./routes/webhooks/dodo";
 
 initLogger({
-  env: { service: "OpenDiagram-server" },
+  env: { service: "opendraw-server" },
   // Explicit, though evlog already defaults this to on in production and the
   // Dockerfile does set NODE_ENV=production. The billing path logs a customer
   // email (lib/dodo/subscription-sync.ts), and those events reach Sentry, so
@@ -39,7 +39,7 @@ const SENTRY_DSN =
 const app = new Hono<{ Variables: SessionVariables }>();
 
 // The middleware is the SDK's only init, and it runs after the imports above have
-// already pulled in `pg` (@OpenDiagram/auth -> @OpenDiagram/db) -- too late to
+// already pulled in `pg` (@opendraw/auth -> @opendraw/db) -- too late to
 // instrument it. `@sentry/node/preload` wraps modules first, so the run scripts
 // and the Dockerfile pass `--preload`; without that flag every `db` span vanishes.
 // It patches `require`, so `pg` has to stay external to the bundle to be seen.
@@ -96,8 +96,17 @@ app.use(
   }),
 );
 
+const health = () => ({
+  status: "ok" as const,
+  release: process.env.OPENDRAW_RELEASE ?? "development",
+});
+
+/** Container and operator probe. It deliberately avoids database work. */
 app.get("/", (c) => c.text("OK"));
-app.get("/health", (c) => c.json({ status: "ok" }));
+app.get("/health", (c) => c.json(health()));
+
+/** Public deployment probe reached through the web application's API rewrite. */
+app.get("/api/health", (c) => c.json(health()));
 
 // Ahead of `resolveSession` deliberately: cors answers a preflight with 204 and
 // never calls next(), so an OPTIONS stops resolving a session it cannot use.

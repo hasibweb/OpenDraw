@@ -37,7 +37,7 @@ export function DashboardSidebar(props: DashboardSidebarProps) {
     <aside className="group/dashboard-sidebar hidden h-full w-[288px] shrink-0 border-r border-od-border-soft bg-od-surface text-od-ink lg:flex lg:flex-col">
       <Link
         href="/"
-        aria-label="OpenDiagram home"
+        aria-label="OpenDraw home"
         className="flex h-16 shrink-0 items-center gap-2 px-4 text-[20px] font-semibold leading-tight"
       >
         <Image
@@ -47,7 +47,7 @@ export function DashboardSidebar(props: DashboardSidebarProps) {
           height={32}
           className="size-7 shrink-0"
         />
-        <span className="truncate">OpenDiagram</span>
+        <span className="truncate">OpenDraw</span>
       </Link>
       <div className="px-3 py-3">
         <label className="flex h-9 items-center gap-2 rounded-full border border-od-border-soft bg-od-surface-elevated px-3 text-[13px] text-od-ink-faint focus-within:border-od-ink">

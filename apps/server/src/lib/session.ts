@@ -1,4 +1,4 @@
-import { auth } from "@OpenDiagram/auth";
+import { auth } from "@opendraw/auth";
 import { identifyUser } from "evlog/better-auth";
 import type { EvlogVariables } from "evlog/hono";
 import type { Context } from "hono";

@@ -1,6 +1,6 @@
 # AGENTS.md
 
-OpenDiagram - AI diagram generator for software architecture. Describe your system in plain English, get editable diagrams on an Excalidraw canvas.
+OpenDraw - AI diagram generator for software architecture. Describe your system in plain English, get editable diagrams on an Excalidraw canvas.
 
 Bun 1.3 monorepo. `apps/web` Next.js 16 (:3001), `apps/server` Hono (:3000), `apps/fumadocs` (:4000), `packages/{auth,config,db,env,harness}`.
 
@@ -28,7 +28,7 @@ Run `just check` and `just types` before calling a coding session done.
 - Install with `bun add`, never by hand-editing package.json. Workspace deps are `workspace:*`. `catalog:` is only for deps used by **two or more** packages.
 - `@/` aliases `apps/web/src/`. Shared components live in `components/`, page-specific ones in `components/<feature>/`.
 - **`apps/server` and `packages/*` files stay under 300 LOC, comments included.** Past that, split. Give the pieces a real structure - a directory with a narrow entry point, the way `lib/quota/` and `lib/dodo/` already do - rather than cutting wherever line 300 lands. Does not apply to `apps/web`, where vendored shadcn components skew the count.
-- Typed env: import from `@OpenDiagram/env/web` or `@OpenDiagram/env/server`.
+- Typed env: import from `@opendraw/env/web` or `@opendraw/env/server`.
 - `packages/db`: never acquire nested DB connections.
 - Interactive controls must look interactive: `cursor: pointer` from the global stylesheet. Only override for disabled/loading (`cursor-wait`, `cursor-not-allowed`).
 - No em dashes and no `--`. Prose, comments, commit messages.

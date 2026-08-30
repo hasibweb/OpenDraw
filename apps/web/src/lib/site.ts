@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
-export const SITE_NAME = "OpenDiagram";
-export const SITE_URL = new URL("https://opendiagram.ink");
-export const GITHUB_URL = "https://github.com/Itz-Agasta/OpenDiagram";
-export const HOME_TITLE = "OpenDiagram - AI Diagram Generator from Plain Text";
+export const SITE_NAME = "OpenDraw";
+export const SITE_URL = new URL("https://draw.hasibweb.com");
+export const GITHUB_URL = "https://github.com/hasibweb/OpenDraw";
+export const HOME_TITLE = "OpenDraw - AI Diagram Generator from Plain Text";
 export const HOME_DESCRIPTION =
   "AI diagram generator from plain text. Turn ideas, processes, and systems into editable diagrams for work, planning, and software design.";
 

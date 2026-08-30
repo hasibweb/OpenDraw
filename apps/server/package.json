@@ -9,14 +9,14 @@
     "start": "bun run --preload @sentry/node/preload dist/index.mjs"
   },
   "dependencies": {
-    "@OpenDiagram/auth": "workspace:*",
-    "@OpenDiagram/db": "workspace:*",
-    "@OpenDiagram/env": "workspace:*",
-    "@OpenDiagram/harness": "workspace:*",
     "@ai-sdk/anthropic": "^4.0.18",
     "@ai-sdk/google": "^4.0.5",
     "@ai-sdk/openai": "^4.0.5",
     "@ai-sdk/otel": "^1.0.37",
+    "@opendraw/auth": "workspace:*",
+    "@opendraw/db": "workspace:*",
+    "@opendraw/env": "workspace:*",
+    "@opendraw/harness": "workspace:*",
     "@openrouter/ai-sdk-provider": "^3.0.0",
     "@sentry/bun": "10.68.0",
     "@sentry/hono": "10.68.0",
@@ -33,7 +33,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@OpenDiagram/config": "workspace:*",
+    "@opendraw/config": "workspace:*",
     "@types/bun": "catalog:",
     "tsdown": "^0.21.9",
     "typescript": "catalog:"

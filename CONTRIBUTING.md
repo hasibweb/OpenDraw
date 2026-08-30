@@ -1,4 +1,4 @@
-# Contributing to OpenDiagram
+# Contributing to OpenDraw
 
 Thanks for helping build an open-source AI diagram generator. Bug fixes, themes, icon packs, layout improvements and docs are all welcome.
 
@@ -7,8 +7,8 @@ Thanks for helping build an open-source AI diagram generator. Bug fixes, themes,
 **Prerequisites:** [Bun](https://bun.sh) 1.3+ and a PostgreSQL database.
 
 ```bash
-git clone https://github.com/Itz-Agasta/OpenDiagram.git
-cd OpenDiagram
+git clone https://github.com/hasibweb/OpenDraw.git
+cd OpenDraw
 just reinstall
 
 cp .env.sample apps/server/.env
@@ -81,7 +81,7 @@ Open an issue with the bug report template. For diagram output problems, include
 
 ## Getting help
 
-Stuck on setup or using the app? Open a [discussion](https://github.com/Itz-Agasta/OpenDiagram/discussions) or email **support@opendiagram.ink**. For anything else aimed at the maintainers, use **admin@opendiagram.ink**.
+Stuck on setup or using the app? Open a [discussion](https://github.com/hasibweb/OpenDraw/discussions) or email **support@hasibweb.com**. For anything else aimed at the maintainers, use **support@hasibweb.com**.
 
 ## Security
 

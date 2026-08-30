@@ -29,7 +29,7 @@ export function SidebarNav({
           <span className="text-[15px]">OD</span>
         </div>
         <div className="min-w-0 flex-1">
-          <p className="truncate text-[14px] text-od-ink">OpenDiagram</p>
+          <p className="truncate text-[14px] text-od-ink">OpenDraw</p>
           <p className="truncate text-[12px] text-od-ink-faint">Workspace</p>
         </div>
         <ChevronDown className="h-4 w-4 text-od-ink-faint" />

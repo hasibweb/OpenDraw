@@ -4,7 +4,7 @@
  * copied to another user/provider and still decrypt.
  */
 import { createCipheriv, createDecipheriv, randomBytes } from "node:crypto";
-import { env } from "@OpenDiagram/env/server";
+import { env } from "@opendraw/env/server";
 
 const ALGORITHM = "aes-256-gcm";
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { authClient, safeFrontendPath } from "@/lib/auth-client";
+import { authClient, frontendCallbackURL, safeFrontendPath } from "@/lib/auth-client";
 import { scoreStrength } from "./auth-components";
 
 export type AuthTab = "signin" | "signup";
@@ -34,14 +34,20 @@ const OAUTH_ERROR_MESSAGES: Record<string, string> = {
     "We couldn't link that GitHub account. Try signing in with your password.",
   "email_doesn't_match": "That GitHub account uses a different email than the one on file.",
   account_already_linked_to_different_user:
-    "That GitHub account is already linked to a different OpenDiagram account.",
+    "That GitHub account is already linked to a different OpenDraw account.",
   email_not_found:
     "GitHub didn't share an email address. Add a public email to your GitHub account, or sign in with a password.",
+  provider_not_found:
+    "GitHub sign-in is not configured yet. Add the GitHub OAuth client ID and secret to the server environment.",
+  access_denied: "GitHub authorization was cancelled. You can try again when ready.",
 };
 
 function oauthErrorMessage(code: string | null): string | null {
   if (!code) return null;
-  return OAUTH_ERROR_MESSAGES[code] ?? "GitHub sign-in failed. Try signing in with your password.";
+  return (
+    OAUTH_ERROR_MESSAGES[code.toLowerCase()] ??
+    "GitHub sign-in failed. Try signing in with your password."
+  );
 }
 
 export function useAuthForm(initialTab: AuthTab) {
@@ -53,6 +59,7 @@ export function useAuthForm(initialTab: AuthTab) {
   );
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [githubPending, setGithubPending] = useState(false);
   const [success, setSuccess] = useState(false);
   const [siEmail, setSiEmail] = useState("");
   const [siPwd, setSiPwd] = useState("");
@@ -142,6 +149,7 @@ export function useAuthForm(initialTab: AuthTab) {
     const visibleErrors = submitted ? errors : validateCurrentValues();
     if (Object.keys(visibleErrors).length > 0) return;
     setLoading(true);
+    setNotice(null);
 
     try {
       const callbacks = {
@@ -149,7 +157,7 @@ export function useAuthForm(initialTab: AuthTab) {
         onSuccess: finishAuthentication,
         onError: (ctx: { error: { message?: string } }) => {
           setLoading(false);
-          alert(
+          setNotice(
             ctx.error.message ||
               (tab === "signin" ? "Invalid email or password" : "Failed to create account"),
           );
@@ -168,7 +176,29 @@ export function useAuthForm(initialTab: AuthTab) {
       }
     } catch {
       setLoading(false);
-      alert("Something went wrong. Please try again.");
+      setNotice("Could not reach the server. Check your connection and try again.");
+    }
+  }
+
+  async function signInWithGitHub() {
+    setGithubPending(true);
+    setNotice(null);
+
+    try {
+      const { error } = await authClient.signIn.social({
+        provider: "github",
+        callbackURL: frontendCallbackURL(redirectTo),
+        errorCallbackURL: frontendCallbackURL(`/login?redirect=${encodeURIComponent(redirectTo)}`),
+      });
+      if (error) {
+        setNotice(
+          oauthErrorMessage(error.code ?? null) ?? error.message ?? "GitHub sign-in failed.",
+        );
+      }
+    } catch {
+      setNotice("Could not reach the server. Check your connection and try again.");
+    } finally {
+      setGithubPending(false);
     }
   }
 
@@ -204,12 +234,14 @@ export function useAuthForm(initialTab: AuthTab) {
     switchTab,
     submit,
     loading,
+    githubPending,
     success,
     redirectTo,
     notice,
     canResend,
     resendVerification,
     resendState,
+    signInWithGitHub,
     signIn: { email: siEmail, password: siPwd, remember: siRemember, errors: siErrors },
     setSignIn: { email: setSiEmail, password: setSiPwd, remember: setSiRemember },
     signUp: {

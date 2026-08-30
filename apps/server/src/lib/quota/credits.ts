@@ -2,12 +2,8 @@
  * The user-facing credit counter. Holds the atomic `creation_usage` primitives
  * and the consume/refund logic layered on top of them.
  */
-import { and, db, eq, sql } from "@OpenDiagram/db";
-import {
-  creationUsage,
-  type CreationUsagePeriod,
-  type PlanId,
-} from "@OpenDiagram/db/schema/billing";
+import { and, db, eq, sql } from "@opendraw/db";
+import { creationUsage, type CreationUsagePeriod, type PlanId } from "@opendraw/db/schema/billing";
 import type { CreationQuotaActor } from "./actor";
 import { CreationQuotaExceededError } from "./errors";
 

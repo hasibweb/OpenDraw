@@ -15,7 +15,7 @@ const sentryDrain = createSentryDrain({
 });
 
 export const { withEvlog, useLogger, log, createError } = createEvlog({
-  service: "OpenDiagram-web",
+  service: "opendraw-web",
   drain: (ctx) => {
     if (ctx.event.level === "warn" || ctx.event.level === "error") {
       // Fire-and-forget: never block the response on log delivery. Defer the
@@ -29,5 +29,5 @@ export const { withEvlog, useLogger, log, createError } = createEvlog({
 });
 
 export const { register, onRequestError } = createInstrumentation({
-  service: "OpenDiagram-web",
+  service: "opendraw-web",
 });

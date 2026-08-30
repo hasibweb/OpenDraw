@@ -23,17 +23,20 @@ const columns = [
   {
     label: "Company",
     links: [
-      ["About OpenDiagram", "/about"],
-      ["Contact", "mailto:support@opendiagram.ink"],
+      ["About OpenDraw", "/about"],
+      ["Contact", "mailto:support@hasibweb.com"],
     ],
   },
 ];
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
-  const external = href.startsWith("http") || href.startsWith("mailto:");
-  return external ? (
+  const external = href.startsWith("http");
+  const anchor = external || href.startsWith("mailto:");
+  return anchor ? (
     <a
       href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
       className="inline-flex min-h-11 items-center transition-opacity hover:opacity-70 lg:min-h-0"
     >
       {children}
@@ -100,6 +103,8 @@ export function SiteFooter() {
               <a
                 href={GITHUB_URL}
                 aria-label="GitHub"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex min-h-11 items-center transition-opacity hover:opacity-70 lg:min-h-0"
               >
                 GitHub
@@ -112,7 +117,7 @@ export function SiteFooter() {
                 Discord
               </a>
               <a
-                href="mailto:support@opendiagram.ink"
+                href="mailto:support@hasibweb.com"
                 aria-label="Email"
                 className="inline-flex min-h-11 items-center transition-opacity hover:opacity-70 lg:min-h-0"
               >
@@ -124,10 +129,10 @@ export function SiteFooter() {
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-[-28px] flex justify-center overflow-hidden whitespace-nowrap text-[clamp(92px,18vw,230px)] font-semibold leading-none tracking-[-0.06em] text-white/20">
-        OpenDiagram.
+        OpenDraw.
       </div>
       <p className="relative z-20 mt-16 max-w-[260px] font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em] text-white/55 md:absolute md:bottom-8 md:right-12 md:mt-0 md:max-w-none lg:right-[90px]">
-        © 2026 · OpenDiagram · All rights reserved
+        © 2026 · OpenDraw · All rights reserved
       </p>
     </footer>
   );

@@ -19,7 +19,7 @@ export function DashboardMain({ creating, loading, onCreate, signedIn }: Dashboa
         <div className="flex min-w-0 items-center gap-3">
           <Link
             href="/"
-            aria-label="OpenDiagram home"
+            aria-label="OpenDraw home"
             className="grid size-10 shrink-0 place-items-center"
           >
             <Image
@@ -30,7 +30,7 @@ export function DashboardMain({ creating, loading, onCreate, signedIn }: Dashboa
               className="size-10"
             />
           </Link>
-          <h1 className="truncate text-[18px] font-semibold leading-tight">OpenDiagram</h1>
+          <h1 className="truncate text-[18px] font-semibold leading-tight">OpenDraw</h1>
         </div>
       </header>
       <div className="mx-auto flex min-h-0 w-full max-w-[1360px] flex-1 flex-col gap-4 overflow-y-auto bg-od-surface p-4 md:p-8">

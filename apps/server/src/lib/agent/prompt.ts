@@ -1,8 +1,8 @@
-import type { DiagramSpec } from "@OpenDiagram/harness";
+import type { DiagramSpec } from "@opendraw/harness";
 import { buildIconCatalog } from "../icons/registry";
 import { specToDsl } from "./canvas-dsl";
 
-const ROLE = `You are a senior software architect working inside OpenDiagram, an AI diagramming workspace.
+const ROLE = `You are a senior software architect working inside OpenDraw, an AI diagramming workspace.
 You design clean, professional engineering diagrams. You converse briefly and draw via tools.`;
 
 const PROTOCOL = `Conversation protocol:

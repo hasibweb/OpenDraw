@@ -139,14 +139,14 @@ async function cloneRepository(input: {
   // read-only except for /tmp, so writing under cwd fails there.
   const baseDir = process.env.OPENDIAGRAM_REPO_CACHE_DIR
     ? path.resolve(process.env.OPENDIAGRAM_REPO_CACHE_DIR)
-    : path.join(tmpdir(), "opendiagram-repos");
+    : path.join(tmpdir(), "opendraw-repos");
   await mkdir(baseDir, { recursive: true });
 
   const repoDir = path.join(
     baseDir,
     `${safePathSegment(input.repoFullName)}-${Date.parse(input.importedAt)}-${randomUUID().slice(0, 8)}`,
   );
-  const askPassDir = await mkdtemp(path.join(tmpdir(), "opendiagram-git-askpass-"));
+  const askPassDir = await mkdtemp(path.join(tmpdir(), "opendraw-git-askpass-"));
   const askPassPath = path.join(askPassDir, "askpass.sh");
 
   try {

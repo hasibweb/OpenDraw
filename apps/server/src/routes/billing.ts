@@ -8,10 +8,10 @@
  *
  * Both 404 when billing is unconfigured, which is the OSS self-host default.
  */
-import { and, db, eq, inArray, ne, sql } from "@OpenDiagram/db";
-import { user } from "@OpenDiagram/db/schema/auth";
-import { ENTITLING_SUBSCRIPTION_STATUSES, subscription } from "@OpenDiagram/db/schema/billing";
-import { env } from "@OpenDiagram/env/server";
+import { and, db, eq, inArray, ne, sql } from "@opendraw/db";
+import { user } from "@opendraw/db/schema/auth";
+import { ENTITLING_SUBSCRIPTION_STATUSES, subscription } from "@opendraw/db/schema/billing";
+import { env } from "@opendraw/env/server";
 import { NotFoundError } from "dodopayments";
 import { Hono } from "hono";
 import { z } from "zod";

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
-import { env } from "@OpenDiagram/env/web";
+import { env } from "@opendraw/env/web";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "sonner";
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     "AI architecture diagrams",
     "software architecture",
     "system design",
-    "OpenDiagram",
+    "OpenDraw",
   ],
   authors: [{ name: SITE_NAME, url: GITHUB_URL }],
   creator: SITE_NAME,

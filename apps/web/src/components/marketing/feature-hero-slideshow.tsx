@@ -6,43 +6,39 @@ import { useReducedMotion } from "motion/react";
 import { assetUrl } from "@/lib/site";
 
 /**
- * Source assets (natural sizes / aspect):
- * 1: 2022×1046 (~1.93)  2: 1902×969 (~1.96)  3: 3958×1724 (~2.30)
- * 4: 1746×1058 (~1.65)  5: 2858×1560 (~1.83)
- *
- * Frame aspect tracks the active slide so cover fills edge-to-edge with no
- * letterbox bars and no crop on the current image.
+ * Every carousel asset uses the same natural size so switching slides never
+ * shifts the page around the canvas frame.
  */
 const SLIDES = [
   {
-    src: assetUrl("/marketing/slideshow/example-1.png"),
-    alt: "OpenDiagram architecture example 1",
-    width: 2022,
-    height: 1046,
+    src: assetUrl("/marketing/slideshow/ecommerce-platform-v2.png"),
+    alt: "OpenDraw e-commerce platform architecture diagram",
+    width: 1672,
+    height: 941,
   },
   {
-    src: assetUrl("/marketing/slideshow/example-2.png"),
-    alt: "OpenDiagram architecture example 2",
-    width: 1902,
-    height: 969,
+    src: assetUrl("/marketing/slideshow/realtime-collaboration-v2.png"),
+    alt: "OpenDraw real-time collaboration architecture diagram",
+    width: 1672,
+    height: 941,
   },
   {
-    src: assetUrl("/marketing/slideshow/example-3.png"),
-    alt: "OpenDiagram architecture example 3",
-    width: 3958,
-    height: 1724,
+    src: assetUrl("/marketing/slideshow/realtime-analytics-v2.png"),
+    alt: "OpenDraw real-time analytics pipeline diagram",
+    width: 1672,
+    height: 941,
   },
   {
-    src: assetUrl("/marketing/slideshow/example-4.png"),
-    alt: "OpenDiagram architecture example 4",
-    width: 1746,
-    height: 1058,
+    src: assetUrl("/marketing/slideshow/continuous-delivery-v2.png"),
+    alt: "OpenDraw continuous delivery architecture diagram",
+    width: 1672,
+    height: 941,
   },
   {
-    src: assetUrl("/marketing/slideshow/example-5.png"),
-    alt: "OpenDiagram architecture example 5",
-    width: 2858,
-    height: 1560,
+    src: assetUrl("/marketing/slideshow/multi-region-reliability-v2.png"),
+    alt: "OpenDraw multi-region reliability architecture diagram",
+    width: 1672,
+    height: 941,
   },
 ] as const;
 
@@ -66,7 +62,7 @@ export function FeatureHeroSlideshow() {
         <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" aria-hidden="true" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" aria-hidden="true" />
         <span className="ml-auto font-mono text-[9px] uppercase tracking-[0.15em] text-black/38">
-          OpenDiagram canvas
+          OpenDraw canvas
         </span>
       </div>
 
@@ -90,7 +86,7 @@ export function FeatureHeroSlideshow() {
               width={slide.width}
               height={slide.height}
               sizes="(min-width: 1280px) 1236px, (min-width: 768px) 90vw, 100vw"
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full object-contain object-center"
               priority={imageIndex === 0}
             />
           </div>

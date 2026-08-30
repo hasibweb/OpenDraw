@@ -1,4 +1,4 @@
-import { env } from "@OpenDiagram/env/server";
+import { env } from "@opendraw/env/server";
 import { log } from "evlog";
 import { Resend } from "resend";
 import { passwordResetEmail, verificationEmail, welcomeEmail, type EmailBody } from "./templates";

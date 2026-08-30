@@ -12,7 +12,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { assetUrl } from "@/lib/site";
 
 /**
- * Narrative: OpenDiagram mascot maps a GitHub repo into architecture for you.
+ * Narrative: OpenDraw mascot maps a GitHub repo into architecture for you.
  * Entrance once; ambient then quiet (~28% float).
  */
 
@@ -383,7 +383,7 @@ export function GithubToWorkspaceIllustration() {
     <div
       className="relative aspect-[16/10] w-full overflow-hidden rounded-[8px] bg-[#f7f7f5]"
       role="img"
-      aria-label="OpenDiagram mascot mapping a GitHub repository into an editable architecture diagram"
+      aria-label="OpenDraw mascot mapping a GitHub repository into an editable architecture diagram"
     >
       <div
         aria-hidden="true"

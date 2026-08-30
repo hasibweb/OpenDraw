@@ -18,8 +18,8 @@
  * And one deployment constraint: Cloud Run throttles CPU the instant the response
  * completes, so every DB write happens before the 200. Nothing is deferred.
  */
-import { db, eq } from "@OpenDiagram/db";
-import { webhookEvent } from "@OpenDiagram/db/schema/billing";
+import { db, eq } from "@opendraw/db";
+import { webhookEvent } from "@opendraw/db/schema/billing";
 import type { UnwrapWebhookEvent } from "dodopayments/resources/webhooks/webhooks";
 import type { AuditableLogger } from "evlog";
 import type { EvlogVariables } from "evlog/hono";

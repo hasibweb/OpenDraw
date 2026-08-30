@@ -1,4 +1,4 @@
-import { env } from "@OpenDiagram/env/web";
+import { env } from "@opendraw/env/web";
 import { consumeSSE, pollUntilTerminal } from "../sse";
 import { projectResponseError, readProjectResponse } from "./http";
 import type { RepoGenerationJob } from "./types";

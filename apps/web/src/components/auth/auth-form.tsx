@@ -1,7 +1,6 @@
 "use client";
 
 import { IconBrandGithubFilled, IconCheck } from "@tabler/icons-react";
-import { authClient, frontendCallbackURL } from "@/lib/auth-client";
 import { VisualPane } from "./auth-components";
 import { SignInFields, SignUpFields } from "./auth-form-fields";
 import { useAuthForm } from "./use-auth-form";
@@ -15,7 +14,7 @@ export function AuthForm({ initialTab }: { initialTab: "signin" | "signup" }) {
         <div className="auth-card">
           <div className="brand">
             <div className="brand-mark">O</div>
-            <div className="brand-name">OpenDiagram</div>
+            <div className="brand-name">OpenDraw</div>
           </div>
 
           {form.success ? (
@@ -93,18 +92,11 @@ export function AuthForm({ initialTab }: { initialTab: "signin" | "signup" }) {
               <button
                 className="btn btn-github"
                 type="button"
-                onClick={() =>
-                  authClient.signIn.social({
-                    provider: "github",
-                    callbackURL: frontendCallbackURL(form.redirectTo),
-                    errorCallbackURL: frontendCallbackURL(
-                      `/login?redirect=${encodeURIComponent(form.redirectTo)}`,
-                    ),
-                  })
-                }
+                onClick={() => void form.signInWithGitHub()}
+                disabled={form.githubPending}
               >
                 <IconBrandGithubFilled size={16} />
-                Continue with GitHub
+                {form.githubPending ? "Connecting…" : "Continue with GitHub"}
               </button>
 
               <div className="alt">

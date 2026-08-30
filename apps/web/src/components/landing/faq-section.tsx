@@ -14,12 +14,12 @@ const faqItems = [
   {
     question: "How does vibe diagramming work?",
     answer:
-      "Start by describing the system, its constraints, and the behavior you need. OpenDiagram creates a visual first draft that you can shape with the editor and AI agent.",
+      "Start by describing the system, its constraints, and the behavior you need. OpenDraw creates a visual first draft that you can shape with the editor and AI agent.",
   },
   {
     question: "Can I start from a GitHub repo?",
     answer:
-      "Yes. Connect GitHub, choose a repository, and OpenDiagram can ground your Vibe Diagram in real project structure.",
+      "Yes. Connect GitHub, choose a repository, and OpenDraw can ground your Vibe Diagram in real project structure.",
   },
   {
     question: "What can I diagram?",
@@ -32,7 +32,7 @@ const faqItems = [
       "Yes. Every Vibe Diagram opens in an editable whiteboard so you can move shapes, rename parts, and keep iterating.",
   },
   {
-    question: "Is OpenDiagram free to try?",
+    question: "Is OpenDraw free to try?",
     answer:
       "Yes. You can start creating Vibe Diagrams from the dashboard and save work when you sign in.",
   },
@@ -174,10 +174,10 @@ export function FaqSection() {
                   </a>
                 </div>
                 <a
-                  href="mailto:support@opendiagram.ink"
+                  href="mailto:support@hasibweb.com"
                   className="break-words text-center text-base leading-[1.7] text-[#ff4a2c] underline underline-offset-2 transition-opacity hover:opacity-70"
                 >
-                  Or, email us at support@opendiagram.ink
+                  Or, email us at support@hasibweb.com
                 </a>
               </div>
             </m.div>

@@ -3,15 +3,15 @@
  * the plan table read, the billing window math, and the resolution that ties
  * them together into a `CreationQuotaActor`.
  */
-import { and, db, eq, inArray, sql } from "@OpenDiagram/db";
-import { user } from "@OpenDiagram/db/schema/auth";
+import { and, db, eq, inArray, sql } from "@opendraw/db";
+import { user } from "@opendraw/db/schema/auth";
 import {
   ENTITLING_SUBSCRIPTION_STATUSES,
   plan,
   subscription,
   type PlanId,
-} from "@OpenDiagram/db/schema/billing";
-import { env } from "@OpenDiagram/env/server";
+} from "@opendraw/db/schema/billing";
+import { env } from "@opendraw/env/server";
 import { createHmac, timingSafeEqual } from "node:crypto";
 import type { Context } from "hono";
 import { getCookie, setCookie } from "hono/cookie";
@@ -34,7 +34,7 @@ export type CreationQuotaActor = {
   ipBucketId: string | null;
 };
 
-const GUEST_COOKIE = "opendiagram_guest_id";
+const GUEST_COOKIE = "opendraw_guest_id";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 400;
 
 // Guests have no billing anchor, so their allowance is lifetime rather than

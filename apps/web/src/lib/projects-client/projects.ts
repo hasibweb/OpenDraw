@@ -1,4 +1,4 @@
-import { env } from "@OpenDiagram/env/web";
+import { env } from "@opendraw/env/web";
 import { readProjectResponse } from "./http";
 import type { CreateProjectInput, SavedProject, SavedProjectFile } from "./types";
 

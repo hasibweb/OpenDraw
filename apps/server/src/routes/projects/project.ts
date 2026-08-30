@@ -1,5 +1,5 @@
-import { and, db, desc, eq } from "@OpenDiagram/db";
-import { project, projectFile } from "@OpenDiagram/db/schema/projects";
+import { and, db, desc, eq } from "@opendraw/db";
+import { project, projectFile } from "@opendraw/db/schema/projects";
 import { Hono } from "hono";
 import { z } from "zod";
 import type { AuthVariables } from "../../lib/require-auth";

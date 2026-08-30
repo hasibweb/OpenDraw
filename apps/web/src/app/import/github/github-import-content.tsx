@@ -12,6 +12,7 @@ import {
   type GitHubRepository,
 } from "@/lib/github-import-client";
 import { getBillingState, type BillingState } from "@/lib/billing-client";
+import { readMigratedLocalStorage } from "@/lib/brand-storage";
 import { PricingModal } from "@/components/billing/pricing-modal";
 import {
   ConnectPanel,
@@ -56,7 +57,10 @@ export function GitHubImportContent() {
     if (fromQuery) return fromQuery;
     if (typeof window === "undefined") return "";
 
-    return window.localStorage.getItem("opendiagram:pending-github-repo") ?? "";
+    return (
+      readMigratedLocalStorage("opendraw:pending-github-repo", "opendiagram:pending-github-repo") ??
+      ""
+    );
   }, [searchParams]);
   const oauthError = searchParams.get("error");
 
@@ -181,22 +185,25 @@ export function GitHubImportContent() {
     try {
       const callbackURL = frontendCallbackURL(callbackPath);
       if (session.data?.user) {
-        await authClient.linkSocial({
+        const { error: authError } = await authClient.linkSocial({
           provider: "github",
           callbackURL,
           errorCallbackURL: callbackURL,
           scopes: ["read:user", "user:email"],
         });
+        if (authError) throw new Error(getOAuthErrorMessage(authError.code ?? "unknown"));
       } else {
-        await authClient.signIn.social({
+        const { error: authError } = await authClient.signIn.social({
           provider: "github",
           callbackURL,
           errorCallbackURL: callbackURL,
           scopes: ["read:user", "user:email"],
         });
+        if (authError) throw new Error(getOAuthErrorMessage(authError.code ?? "unknown"));
       }
-    } catch {
-      setError("Could not start GitHub sign in.");
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Could not start GitHub sign in.");
+    } finally {
       setAuthPending(false);
     }
   }
@@ -227,6 +234,7 @@ export function GitHubImportContent() {
         throw new Error("Import finished without a project.");
       }
 
+      window.localStorage.removeItem("opendraw:pending-github-repo");
       window.localStorage.removeItem("opendiagram:pending-github-repo");
       setImportedProject(completed.project);
       setImportState("done");

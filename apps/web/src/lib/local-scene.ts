@@ -1,5 +1,6 @@
 import { createStore, del, get, set } from "idb-keyval";
 import type { ProjectFileType } from "@/lib/projects-client";
+import { migrateIndexedDBStore } from "@/lib/brand-storage";
 
 /**
  * Browser-side source of truth for the document currently open on the canvas.
@@ -16,8 +17,20 @@ import type { ProjectFileType } from "@/lib/projects-client";
  * from being re-serialised every time an arrow moves, and matches how they will
  * be keyed in object storage when they move off the row entirely.
  */
-const sceneStore = createStore("opendiagram-scene-db", "scene-store");
-const blobStore = createStore("opendiagram-blob-db", "blob-store");
+const sceneStore = createStore("opendraw-scene-db", "scene-store");
+const blobStore = createStore("opendraw-blob-db", "blob-store");
+let sceneStoreMigration: Promise<void> | null = null;
+let blobStoreMigration: Promise<void> | null = null;
+
+function ensureSceneStoreMigration() {
+  sceneStoreMigration ??= migrateIndexedDBStore("opendiagram-scene-db", "scene-store", sceneStore);
+  return sceneStoreMigration;
+}
+
+function ensureBlobStoreMigration() {
+  blobStoreMigration ??= migrateIndexedDBStore("opendiagram-blob-db", "blob-store", blobStore);
+  return blobStoreMigration;
+}
 
 export type LocalScene = {
   fileId: string;
@@ -33,6 +46,7 @@ export type LocalScene = {
 
 export async function readLocalScene(fileId: string): Promise<LocalScene | null> {
   try {
+    await ensureSceneStoreMigration();
     return (await get<LocalScene>(fileId, sceneStore)) ?? null;
   } catch {
     // A blocked or unavailable IndexedDB (private mode, storage pressure) must
@@ -43,6 +57,7 @@ export async function readLocalScene(fileId: string): Promise<LocalScene | null>
 
 export async function writeLocalScene(entry: LocalScene): Promise<void> {
   try {
+    await ensureSceneStoreMigration();
     await set(entry.fileId, entry, sceneStore);
   } catch {
     // Losing the local copy is survivable -- the sync queue still holds the
@@ -52,6 +67,7 @@ export async function writeLocalScene(entry: LocalScene): Promise<void> {
 
 export async function deleteLocalScene(fileId: string): Promise<void> {
   try {
+    await ensureSceneStoreMigration();
     await del(fileId, sceneStore);
   } catch {
     /* nothing useful to do */
@@ -61,6 +77,7 @@ export async function deleteLocalScene(fileId: string): Promise<void> {
 /** Excalidraw `BinaryFileData` keyed by its own file id. */
 export async function readLocalBlob<T>(id: string): Promise<T | null> {
   try {
+    await ensureBlobStoreMigration();
     return (await get<T>(id, blobStore)) ?? null;
   } catch {
     return null;
@@ -69,6 +86,7 @@ export async function readLocalBlob<T>(id: string): Promise<T | null> {
 
 export async function writeLocalBlob<T>(id: string, value: T): Promise<void> {
   try {
+    await ensureBlobStoreMigration();
     await set(id, value, blobStore);
   } catch {
     /* nothing useful to do */

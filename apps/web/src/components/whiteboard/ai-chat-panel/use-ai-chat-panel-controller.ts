@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { ThemeName } from "@OpenDiagram/harness";
+import type { ThemeName } from "@opendraw/harness";
 import {
   parseCanvasDiagrams,
   serializeCanvasDiagrams,

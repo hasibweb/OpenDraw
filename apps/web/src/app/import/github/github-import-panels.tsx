@@ -45,7 +45,7 @@ export function ConnectPanel({
         </h2>
         <p className="text-[15px] leading-[1.7] text-od-ink-muted">
           {isAuthenticated
-            ? "Authorize GitHub once to access your public repositories. Your OpenDiagram account and session will stay unchanged."
+            ? "Authorize GitHub once to access your public repositories. Your OpenDraw account and session will stay unchanged."
             : "Sign in with GitHub to access your public repositories and choose one to analyze."}
         </p>
       </div>
@@ -84,8 +84,8 @@ export function ConnectPanel({
         <Lock className="mt-0.5 h-4 w-4 shrink-0 text-od-ink" />
         <span>
           {isAuthenticated
-            ? "GitHub is used only for repository access. Your OpenDiagram session stays active."
-            : "GitHub is used for repository access and OpenDiagram sign-in during import."}
+            ? "GitHub is used only for repository access. Your OpenDraw session stays active."
+            : "GitHub is used for repository access and OpenDraw sign-in during import."}
         </span>
       </div>
     </div>

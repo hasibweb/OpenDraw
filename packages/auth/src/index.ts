@@ -1,7 +1,7 @@
-import { db, eq } from "@OpenDiagram/db";
-import * as schema from "@OpenDiagram/db/schema/auth";
-import { plan } from "@OpenDiagram/db/schema/billing";
-import { env } from "@OpenDiagram/env/server";
+import { db, eq } from "@opendraw/db";
+import * as schema from "@opendraw/db/schema/auth";
+import { plan } from "@opendraw/db/schema/billing";
+import { env } from "@opendraw/env/server";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { sendPasswordResetMail, sendVerificationMail, sendWelcomeMail } from "./email";
@@ -40,6 +40,7 @@ export function createAuth() {
       : undefined;
 
   return betterAuth({
+    appName: "OpenDraw",
     // Shared `db`, not a second `createDb()` -- each call makes its own pg.Pool,
     // and two pools per Cloud Run instance halves capacity under Supavisor.
     // `transaction: true` wraps sign-up (user + account + session) in a rollback.

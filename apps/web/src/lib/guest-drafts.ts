@@ -1,6 +1,7 @@
 import { createStore, del, entries, set } from "idb-keyval";
 import type { ProjectFileType } from "@/lib/projects-client";
 import type { StoredChatMessage } from "@/lib/chat-history";
+import { migrateIndexedDBStore } from "@/lib/brand-storage";
 
 export type GuestDraftFile = {
   id: string;
@@ -32,7 +33,13 @@ export type GuestProjectDraft = {
  * for signed-in scenes, so promoting a draft at signup is a flag flip rather than
  * a data migration.
  */
-const draftStore = createStore("opendiagram-draft-db", "draft-store");
+const draftStore = createStore("opendraw-draft-db", "draft-store");
+let draftStoreMigration: Promise<void> | null = null;
+
+function ensureDraftStoreMigration() {
+  draftStoreMigration ??= migrateIndexedDBStore("opendiagram-draft-db", "draft-store", draftStore);
+  return draftStoreMigration;
+}
 
 const guestDrafts = new Map<string, GuestProjectDraft>();
 const legacyDraftPrefix = "opendiagram:guest-project:";
@@ -57,6 +64,7 @@ function hydrate(): Promise<void> {
   if (!hydration) {
     hydration = (async () => {
       clearLegacyDrafts();
+      await ensureDraftStoreMigration();
       try {
         for (const [id, draft] of await entries<string, GuestProjectDraft>(draftStore)) {
           // Anything already in the cache was written during this page load, so
@@ -119,10 +127,14 @@ export async function listGuestProjectDrafts(): Promise<GuestProjectDraft[]> {
 export function saveGuestProjectDraft(draft: GuestProjectDraft) {
   const next = { ...draft, updatedAt: new Date().toISOString() };
   guestDrafts.set(next.id, next);
-  void set(next.id, next, draftStore).catch(() => {});
+  void ensureDraftStoreMigration()
+    .then(() => set(next.id, next, draftStore))
+    .catch(() => {});
 }
 
 export function deleteGuestProjectDraft(id: string) {
   guestDrafts.delete(id);
-  void del(id, draftStore).catch(() => {});
+  void ensureDraftStoreMigration()
+    .then(() => del(id, draftStore))
+    .catch(() => {});
 }

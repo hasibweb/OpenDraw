@@ -1,5 +1,5 @@
 {
-  "extends": "@OpenDiagram/config/tsconfig.base.json",
+  "extends": "@opendraw/config/tsconfig.base.json",
   "compilerOptions": {
     "declaration": true,
     "declarationMap": true,

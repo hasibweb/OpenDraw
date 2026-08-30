@@ -5,6 +5,8 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "env": ["API_UPSTREAM_URL"],
+      "passThroughEnv": ["SENTRY_AUTH_TOKEN"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
     "lint": {

@@ -88,7 +88,7 @@ export function BlogPage({ posts, tags }: BlogPageProps) {
       <section className="px-6 pb-12 pt-20 md:px-12 md:pb-16 md:pt-28 lg:px-[120px]">
         <div className="mx-auto w-full max-w-[1200px]">
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#ff4a2c]">
-            OpenDiagram Publications
+            OpenDraw Publications
           </p>
           <div className="mt-7 grid gap-10 lg:grid-cols-[1.4fr_0.6fr] lg:items-end">
             <div>
@@ -354,7 +354,7 @@ export function BlogPage({ posts, tags }: BlogPageProps) {
       <section className="px-6 pb-24 pt-8 md:px-12 lg:px-[120px] lg:pb-36">
         <div className="mx-auto w-full max-w-[1200px]">
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-black/42 mb-8">
-            Explore OpenDiagram
+            Explore OpenDraw
           </p>
           <div className="grid gap-6 md:grid-cols-3">
             {/* Action 1 */}
@@ -409,7 +409,7 @@ export function BlogPage({ posts, tags }: BlogPageProps) {
             <a
               href={GITHUB_URL}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="group flex flex-col justify-between rounded-2xl border border-black/[0.08] bg-white p-6 shadow-[0_12px_24px_rgba(0,0,0,0.02)] transition-all duration-300 hover:border-black/20 hover:shadow-[0_18px_36px_rgba(0,0,0,0.04)]"
               style={{ cursor: "pointer" }}
             >
@@ -423,7 +423,7 @@ export function BlogPage({ posts, tags }: BlogPageProps) {
                   Open Source Code
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-black/55">
-                  OpenDiagram is Apache 2.0 licensed. Review our code, self-host the repository, or
+                  OpenDraw is Apache 2.0 licensed. Review our code, self-host the repository, or
                   contribute updates.
                 </p>
               </div>

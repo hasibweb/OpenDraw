@@ -7,20 +7,20 @@ import { MarketingPage } from "@/components/marketing/marketing-page";
 import { assetUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Text to Diagram, ERD Maker & Flowchart Generator | OpenDiagram",
+  title: "Text to Diagram, ERD Maker & Flowchart Generator | OpenDraw",
   description:
     "Turn plain text into ERDs, flowcharts, and architecture diagrams you can keep editing.",
   alternates: { canonical: "/features" },
   openGraph: {
     type: "website",
     url: "/features",
-    title: "Text to Diagram, ERD Maker & Flowchart Generator | OpenDiagram",
+    title: "Text to Diagram, ERD Maker & Flowchart Generator | OpenDraw",
     description:
       "Turn plain text into ERDs, flowcharts, and architecture diagrams you can keep editing.",
     images: [
       {
         url: assetUrl("/marketing/features/dashboard.png"),
-        alt: "OpenDiagram dashboard for starting an architecture diagram",
+        alt: "OpenDraw dashboard for starting an architecture diagram",
       },
     ],
   },
@@ -32,13 +32,13 @@ const showcaseItems = [
     label: "Bring your own keys",
     title: "Your providers. Your models. Your bill.",
     description:
-      "Connect OpenAI, Anthropic, Gemini, or another catalog provider with an API key you already pay for. OpenDiagram encrypts keys at rest, routes generation through your default provider, and falls back to the platform model only when you have not connected one. No forced lock-in to a single vendor quota—and no mystery markup on tokens you already buy elsewhere.",
+      "Connect OpenAI, Anthropic, Gemini, or another catalog provider with an API key you already pay for. OpenDraw encrypts keys at rest, routes generation through your default provider, and falls back to the platform model only when you have not connected one. No forced lock-in to a single vendor quota—and no mystery markup on tokens you already buy elsewhere.",
     media: {
       kind: "image" as const,
-      src: assetUrl("/marketing/features/byok-illustration.jpg"),
-      alt: "OpenDiagram Bring Your Own Keys illustration: AI Providers panel with OpenAI, Anthropic, and Gemini, plus a connect form for an encrypted API key",
-      width: 1280,
-      height: 720,
+      src: assetUrl("/marketing/features/byok-providers.png"),
+      alt: "OpenDraw Bring Your Own Keys illustration: AI Providers panel with OpenAI, Anthropic, and Gemini, plus a connect form for an encrypted API key",
+      width: 1672,
+      height: 941,
     },
   },
   {
@@ -46,11 +46,13 @@ const showcaseItems = [
     label: "Entity relationships",
     title: "ERD diagrams that stay editable",
     description:
-      "Model tables, keys, and cardinality as first-class objects—not a one-shot image export. Generate an entity-relationship diagram from a schema description or product brief, then adjust fields, rename entities, and rewire associations when the data model shifts. OpenDiagram is built for ERD work you will open again next sprint, not archive in a slide deck.",
+      "Model tables, keys, and cardinality as first-class objects—not a one-shot image export. Generate an entity-relationship diagram from a schema description or product brief, then adjust fields, rename entities, and rewire associations when the data model shifts. OpenDraw is built for ERD work you will open again next sprint, not archive in a slide deck.",
     media: {
-      kind: "video" as const,
-      src: assetUrl("/marketing/features/erd-tutorial.mp4"),
-      alt: "Tutorial video: generating and editing an entity-relationship diagram (ERD) in OpenDiagram",
+      kind: "image" as const,
+      src: assetUrl("/marketing/features/editable-erd.png"),
+      alt: "Editable OpenDraw entity-relationship diagram connecting users, projects, diagrams, and revisions",
+      width: 1672,
+      height: 941,
     },
   },
   {
@@ -60,9 +62,11 @@ const showcaseItems = [
     description:
       "Map onboarding paths, approval chains, incident runbooks, and API request lifecycles as flowcharts you can actually revise. Branch logic, labels, and steps stay on the canvas so product and engineering can debate the path without redrawing from a blank page. Use natural language to draft the flow, then pin the sequence that matches how the system really behaves.",
     media: {
-      kind: "video" as const,
-      src: assetUrl("/marketing/features/flow-tutorial.mp4"),
-      alt: "Tutorial video: creating and refining a process flowchart in OpenDiagram",
+      kind: "image" as const,
+      src: assetUrl("/marketing/features/incident-flowchart.png"),
+      alt: "Editable OpenDraw incident-response flowchart with decision branches and handoffs",
+      width: 1672,
+      height: 941,
     },
   },
   {
@@ -70,13 +74,13 @@ const showcaseItems = [
     label: "Project memory",
     title: "Context that carries into the next version",
     description:
-      "Architecture does not freeze after the first commit. OpenDiagram keeps project context—services, prior diagram structure, and the decisions you already made—so each revision builds on what exists instead of inventing a parallel universe. Evolve diagrams as requirements change: add a service, split a domain, or reconnect a dependency without losing the thread of the system you already designed.",
+      "Architecture does not freeze after the first commit. OpenDraw keeps project context—services, prior diagram structure, and the decisions you already made—so each revision builds on what exists instead of inventing a parallel universe. Evolve diagrams as requirements change: add a service, split a domain, or reconnect a dependency without losing the thread of the system you already designed.",
     media: {
       kind: "image" as const,
-      src: assetUrl("/marketing/features/memory-context.jpg"),
-      alt: "OpenDiagram illustration of a software architecture diagram evolving with a Project Context panel of services, decisions, and prior structure",
-      width: 1280,
-      height: 720,
+      src: assetUrl("/marketing/features/project-context.png"),
+      alt: "OpenDraw illustration of a software architecture diagram evolving with a Project Context panel of services, decisions, and prior structure",
+      width: 1672,
+      height: 941,
     },
   },
 ];

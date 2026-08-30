@@ -1,5 +1,5 @@
-import { db, eq, sql } from "@OpenDiagram/db";
-import { projectFile, projectFileContent } from "@OpenDiagram/db/schema/projects";
+import { db, eq, sql } from "@opendraw/db";
+import { projectFile, projectFileContent } from "@opendraw/db/schema/projects";
 
 /** Either the pooled db or an open transaction; both satisfy these calls. */
 type Db = typeof db | Parameters<Parameters<typeof db.transaction>[0]>[0];

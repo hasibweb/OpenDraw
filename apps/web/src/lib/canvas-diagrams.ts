@@ -1,4 +1,4 @@
-import type { DiagramSpec } from "@OpenDiagram/harness";
+import type { DiagramSpec } from "@opendraw/harness";
 
 /**
  * Every diagram drawn on one canvas, keyed by the frame it occupies.

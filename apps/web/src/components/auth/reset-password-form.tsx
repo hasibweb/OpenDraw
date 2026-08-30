@@ -27,7 +27,7 @@ export function ResetPasswordForm() {
         <div className="auth-card">
           <div className="brand">
             <div className="brand-mark">O</div>
-            <div className="brand-name">OpenDiagram</div>
+            <div className="brand-name">OpenDraw</div>
           </div>
           {token ? <NewPassword token={token} /> : <RequestLink linkError={linkError} />}
         </div>
@@ -123,7 +123,7 @@ function RequestLink({ linkError }: { linkError: string | null }) {
                 data-has-icon="true"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                placeholder="you@opendiagram.dev"
+                placeholder="you@hasibweb.com"
                 autoComplete="email"
                 aria-invalid={!!error || undefined}
               />

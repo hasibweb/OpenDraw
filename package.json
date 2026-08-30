@@ -1,5 +1,5 @@
 {
-  "name": "OpenDiagram",
+  "name": "opendraw",
   "private": true,
   "workspaces": {
     "packages": [
@@ -40,8 +40,8 @@
     "check-types": "turbo run check-types",
     "dev:web": "turbo run dev -F web",
     "dev:server": "turbo run dev -F server",
-    "db:generate": "turbo run db:generate -F @OpenDiagram/db",
-    "db:migrate": "turbo run db:migrate -F @OpenDiagram/db",
+    "db:generate": "turbo run db:generate -F @opendraw/db",
+    "db:migrate": "turbo run db:migrate -F @opendraw/db",
     "docker:build": "docker compose build",
     "docker:up": "docker compose up -d --build",
     "docker:down": "docker compose down",
@@ -50,7 +50,7 @@
     "doctor": "npx react-doctor@latest"
   },
   "dependencies": {
-    "@OpenDiagram/env": "workspace:*",
+    "@opendraw/env": "workspace:*",
     "@phosphor-icons/react": "^2.1.10",
     "dotenv": "catalog:",
     "elkjs": "^0.11.1",
@@ -59,7 +59,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@OpenDiagram/config": "workspace:*",
+    "@opendraw/config": "workspace:*",
     "@types/bun": "catalog:",
     "@typescript/native-preview": "latest",
     "oxfmt": "^0.53.0",

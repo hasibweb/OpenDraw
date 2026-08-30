@@ -1,6 +1,6 @@
 ---
 version: "alpha"
-name: OpenDiagram
+name: OpenDraw
 description: "A calm, editorial AI workspace for turning software architecture into diagrams, docs, and decisions."
 colors:
   primary: "#1A1A1A"
@@ -140,11 +140,11 @@ components:
     height: "1px"
 ---
 
-# Design System: OpenDiagram
+# Design System: OpenDraw
 
 ## Overview
 
-OpenDiagram should feel like a quiet architecture studio for open-source maintainers: matte, editorial, technical, and calm. The interface pairs a soft warm-gray canvas with white tactile pills, black ink typography, oversized diagram-like composition, and occasional kinetic WebGL light. The brand is not a generic SaaS dashboard. It is a visual workspace that makes complex repositories feel inspectable and understandable.
+OpenDraw should feel like a quiet architecture studio for open-source maintainers: matte, editorial, technical, and calm. The interface pairs a soft warm-gray canvas with white tactile pills, black ink typography, oversized diagram-like composition, and occasional kinetic WebGL light. The brand is not a generic SaaS dashboard. It is a visual workspace that makes complex repositories feel inspectable and understandable.
 
 Atmosphere scale:
 
@@ -218,7 +218,7 @@ Never use neon outer glows. Never use heavy drop shadows that make surfaces feel
 
 ## Shapes
 
-OpenDiagram is softly rounded and tactile, but not childish.
+OpenDraw is softly rounded and tactile, but not childish.
 
 - Marketing and editorial buttons: rounded pill, 999px radius.
 - Dashboard command buttons: rounded-md, 8px radius.

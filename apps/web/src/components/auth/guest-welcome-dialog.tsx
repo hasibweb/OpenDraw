@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { KeyRound, Sparkles } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
+import { readMigratedLocalStorage } from "@/lib/brand-storage";
 import { assetUrl } from "@/lib/site";
 import { getCreationQuota, type CreationQuota } from "@/lib/projects-client";
 import { Button } from "@/components/ui/button";
@@ -17,7 +18,8 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-const DISMISSED_KEY = "opendiagram:guest-welcome-dismissed";
+const DISMISSED_KEY = "opendraw:guest-welcome-dismissed";
+const LEGACY_DISMISSED_KEY = "opendiagram:guest-welcome-dismissed";
 
 export function GuestWelcomeDialog() {
   const pathname = usePathname();
@@ -32,7 +34,7 @@ export function GuestWelcomeDialog() {
     initialSessionResolved.current = true;
     if (session.data?.user) return;
 
-    const dismissed = window.localStorage.getItem(DISMISSED_KEY) === "true";
+    const dismissed = readMigratedLocalStorage(DISMISSED_KEY, LEGACY_DISMISSED_KEY) === "true";
     if (!dismissed) setOpen(true);
   }, [session.data?.user, session.isPending]);
 
@@ -70,15 +72,13 @@ export function GuestWelcomeDialog() {
           <div className="flex items-center gap-3">
             <Image
               src={assetUrl("/brand/mascot.png")}
-              alt="OpenDiagram mascot"
+              alt="OpenDraw mascot"
               width={52}
               height={52}
               className="size-11"
             />
             <div>
-              <p className="text-[18px] font-semibold tracking-[-0.02em] text-od-ink">
-                OpenDiagram
-              </p>
+              <p className="text-[18px] font-semibold tracking-[-0.02em] text-od-ink">OpenDraw</p>
               <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-[#c53f29]">
                 Vibe diagrams
               </p>
@@ -89,10 +89,10 @@ export function GuestWelcomeDialog() {
         <div className="space-y-6 px-6 pb-6 pt-2 sm:px-7 sm:pb-7">
           <DialogHeader className="space-y-2 text-left">
             <DialogTitle className="text-[24px] leading-[1.15] tracking-[-0.03em] text-od-ink">
-              Use OpenDiagram your way
+              Use OpenDraw your way
             </DialogTitle>
             <DialogDescription className="text-[14px] leading-6 text-od-ink-muted">
-              Log in to use your own AI provider keys with OpenDiagram.
+              Log in to use your own AI provider keys with OpenDraw.
             </DialogDescription>
           </DialogHeader>
 

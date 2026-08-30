@@ -9,21 +9,21 @@ const socialImageUrl = new URL(assetUrl("/brand/mascot.png"), SITE_URL).href;
 export const metadata: Metadata = {
   title: "About",
   description:
-    "OpenDiagram is an open-source, editable architecture workspace. Learn why it exists and how it's built.",
+    "OpenDraw is an open-source, editable architecture workspace. Learn why it exists and how it's built.",
   alternates: { canonical: "/about" },
   openGraph: {
     type: "website",
     url: "/about",
-    title: "About | OpenDiagram",
+    title: "About | OpenDraw",
     description:
-      "OpenDiagram is an open-source, editable architecture workspace. Learn why it exists and how it's built.",
-    images: [{ url: socialImageUrl, alt: "OpenDiagram mascot" }],
+      "OpenDraw is an open-source, editable architecture workspace. Learn why it exists and how it's built.",
+    images: [{ url: socialImageUrl, alt: "OpenDraw mascot" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About | OpenDiagram",
+    title: "About | OpenDraw",
     description:
-      "OpenDiagram is an open-source, editable architecture workspace. Learn why it exists and how it's built.",
+      "OpenDraw is an open-source, editable architecture workspace. Learn why it exists and how it's built.",
     images: [socialImageUrl],
   },
 };
@@ -34,7 +34,7 @@ const aboutStructuredData = {
   url: `${SITE_URL.href}about`,
   mainEntity: {
     "@type": "Organization",
-    name: "OpenDiagram",
+    name: "OpenDraw",
     url: SITE_URL.href,
     sameAs: [GITHUB_URL],
     description: "Open-source, editable architecture diagramming workspace.",
@@ -51,7 +51,7 @@ const principles = [
   {
     title: "Engineer judgment stays in the loop",
     description:
-      "OpenDiagram creates working drafts. Engineers still validate constraints, tradeoffs, failure modes, and the architecture that reaches production.",
+      "OpenDraw creates working drafts. Engineers still validate constraints, tradeoffs, failure modes, and the architecture that reaches production.",
   },
   {
     title: "Open source first",
@@ -66,7 +66,7 @@ export default function AboutPage() {
       <section className="px-6 pb-20 pt-20 md:px-12 md:pb-28 md:pt-28 lg:px-[120px]">
         <div className="mx-auto w-full max-w-[1200px]">
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#ff4a2c]">
-            Why OpenDiagram exists
+            Why OpenDraw exists
           </p>
           <div className="mt-7 grid gap-10 lg:grid-cols-[1.45fr_0.55fr] lg:items-end">
             <h1 className="max-w-[920px] text-balance text-[50px] font-medium leading-[0.94] tracking-[-0.04em] md:text-[76px] lg:text-[92px]">
@@ -74,9 +74,8 @@ export default function AboutPage() {
               <span className="font-excali font-normal">open to change.</span>
             </h1>
             <p className="max-w-[470px] text-lg leading-[1.7] text-black/60">
-              Software systems evolve after the whiteboard meeting. OpenDiagram keeps the diagram,
-              the reasoning, and the editing surface together so architecture can evolve with the
-              code.
+              Software systems evolve after the whiteboard meeting. OpenDraw keeps the diagram, the
+              reasoning, and the editing surface together so architecture can evolve with the code.
             </p>
           </div>
         </div>
@@ -93,7 +92,7 @@ export default function AboutPage() {
             </h2>
             <p className="mt-7 max-w-[510px] text-lg leading-[1.7] text-black/58">
               Screenshots, repositories, documents, and chat history each hold a different fragment.
-              OpenDiagram brings those materials into one architecture workspace.
+              OpenDraw brings those materials into one architecture workspace.
             </p>
           </div>
           <div className="overflow-hidden rounded-[14px] border border-black/[0.08] bg-white p-2 shadow-[0_18px_50px_rgba(0,0,0,0.06)] lg:col-span-7">
@@ -165,6 +164,8 @@ export default function AboutPage() {
             </dl>
             <a
               href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex min-h-11 w-fit items-center justify-center rounded-full bg-[#1a1a1a] px-5 text-sm font-semibold text-white transition-colors hover:bg-black/76"
             >
               Inspect the source&nbsp; ↗

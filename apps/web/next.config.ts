@@ -4,15 +4,26 @@ import type { NextConfig } from "next";
 const publicAssetUrl = process.env.NEXT_PUBLIC_ASSET_URL
   ? new URL(process.env.NEXT_PUBLIC_ASSET_URL)
   : null;
+const apiUpstreamUrl = process.env.API_UPSTREAM_URL?.replace(/\/$/, "");
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@OpenDiagram/harness"],
+  transpilePackages: ["@opendraw/harness"],
   async redirects() {
     return [
       {
         source: "/ai-diagram-generator",
         destination: "/ai-architecture-diagram-generator",
         permanent: true,
+      },
+    ];
+  },
+  async rewrites() {
+    if (!apiUpstreamUrl) return [];
+
+    return [
+      {
+        source: "/api/:path*",
+        destination: `${apiUpstreamUrl}/api/:path*`,
       },
     ];
   },

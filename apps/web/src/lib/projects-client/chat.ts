@@ -1,4 +1,4 @@
-import { env } from "@OpenDiagram/env/web";
+import { env } from "@opendraw/env/web";
 import { readAiProviderUsage } from "../ai-provider-usage";
 import { projectResponseError, readProjectResponse } from "./http";
 import type { ProjectChatResult } from "./types";

@@ -44,7 +44,7 @@ export const useWorkspaceLayoutStore = create<WorkspaceLayoutStore>()(
       agentWidth: 384,
       isAgentOpen: true,
       projectId: null,
-      projectName: "OpenDiagram",
+      projectName: "OpenDraw",
       files: [],
       activeFileId: null,
       setSidebarWidth: (width) => set({ sidebarWidth: width }),
@@ -83,7 +83,7 @@ export const useWorkspaceLayoutStore = create<WorkspaceLayoutStore>()(
 
           return {
             projectId: null,
-            projectName: "OpenDiagram",
+            projectName: "OpenDraw",
             files: [],
             activeFileId: null,
           };

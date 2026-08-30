@@ -17,8 +17,8 @@
           {
             "paths": [
               {
-                "name": "@OpenDiagram/harness",
-                "message": "Client code must not import runtime values from the harness barrel. Use `import type` or the lightweight subpath @OpenDiagram/harness/diagram-schema.",
+                "name": "@opendraw/harness",
+                "message": "Client code must not import runtime values from the harness barrel. Use `import type` or the lightweight subpath @opendraw/harness/diagram-schema.",
                 "allowTypeImports": true
               }
             ]

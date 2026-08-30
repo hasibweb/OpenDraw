@@ -53,7 +53,7 @@ body:
     id: environment
     attributes:
       label: Environment
-      description: Hosted opendiagram.ink, or self-hosted? Include browser and Bun version if self-hosted.
+      description: Hosted draw.hasibweb.com, or self-hosted? Include browser and Bun version if self-hosted.
       placeholder: "self-hosted, Bun 1.3.4, Chrome 141"
     validations:
       required: true

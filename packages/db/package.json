@@ -1,5 +1,5 @@
 {
-  "name": "@OpenDiagram/db",
+  "name": "@opendraw/db",
   "type": "module",
   "exports": {
     ".": {
@@ -20,17 +20,18 @@
     "db:generate": "drizzle-kit generate",
     "db:studio": "drizzle-kit studio",
     "db:migrate": "drizzle-kit migrate",
-    "db:seed": "bun run src/seed.ts"
+    "db:seed": "bun run src/seed.ts",
+    "db:setup": "bun run db:migrate && bun run db:seed"
   },
   "dependencies": {
-    "@OpenDiagram/env": "workspace:*",
+    "@opendraw/env": "workspace:*",
     "dotenv": "catalog:",
     "drizzle-orm": "catalog:",
     "pg": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@OpenDiagram/config": "workspace:*",
+    "@opendraw/config": "workspace:*",
     "@types/pg": "^8.16.0",
     "drizzle-kit": "^0.31.8",
     "typescript": "catalog:"

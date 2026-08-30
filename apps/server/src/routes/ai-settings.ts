@@ -1,6 +1,6 @@
 /** BYOK settings: list the catalog, connect/update/remove a user's own provider key. */
-import { and, db, eq } from "@OpenDiagram/db";
-import { userAiProvider, userAiProviderKinds } from "@OpenDiagram/db/schema/ai";
+import { and, db, eq } from "@opendraw/db";
+import { userAiProvider, userAiProviderKinds } from "@opendraw/db/schema/ai";
 import { generateText } from "ai";
 import { Hono } from "hono";
 import { z } from "zod";

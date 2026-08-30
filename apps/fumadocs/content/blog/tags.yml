@@ -11,9 +11,9 @@ ai-layout:
 engineering:
   label: Engineering
   permalink: engineering
-  description: Engineering notes from building OpenDiagram.
+  description: Engineering notes from building OpenDraw.
 
 news:
   label: News & updates
   permalink: news
-  description: OpenDiagram releases, milestones, and community updates.
+  description: OpenDraw releases, milestones, and community updates.

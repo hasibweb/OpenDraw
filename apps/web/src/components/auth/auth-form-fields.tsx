@@ -17,7 +17,7 @@ export function SignInFields({ form }: { form: AuthFormController }) {
             data-has-icon="true"
             value={signIn.email}
             onChange={(event) => setSignIn.email(event.target.value)}
-            placeholder="you@opendiagram.dev"
+            placeholder="you@hasibweb.com"
             autoComplete="email"
             aria-invalid={!!signIn.errors.email || undefined}
           />
@@ -95,7 +95,7 @@ export function SignUpFields({ form }: { form: AuthFormController }) {
             data-has-icon="true"
             value={signUp.email}
             onChange={(event) => setSignUp.email(event.target.value)}
-            placeholder="you@opendiagram.dev"
+            placeholder="you@hasibweb.com"
             autoComplete="email"
             aria-invalid={!!signUp.errors.email || undefined}
           />

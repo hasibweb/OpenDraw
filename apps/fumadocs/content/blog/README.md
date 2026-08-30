@@ -1,4 +1,4 @@
-# OpenDiagram blog content
+# OpenDraw blog content
 
 Posts use this structure:
 

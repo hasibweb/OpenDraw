@@ -1,4 +1,4 @@
-# @OpenDiagram/harness
+# @opendraw/harness
 
 The diagram engine. Takes the semantic `DiagramSpec` the LLM emits and turns it
 into positioned, styled elements that Excalidraw can render.
@@ -91,16 +91,16 @@ to the user.
 
 ## Server-only runtime boundary
 
-`@OpenDiagram/harness` is a **server-only runtime** package. Its barrel
+`@opendraw/harness` is a **server-only runtime** package. Its barrel
 (`src/index.ts`) pulls in the full engine — elkjs graph layout, the renderer and
 the theme registry — so it must never be value-imported from client code
 (`apps/web`). The browser only ever receives **specs + types**; all layout,
 sizing and rendering happens on the server.
 
-| Client wants…                                             | Import this                                               | Why                                                                                |
-| --------------------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `DiagramSpec`, `ThemeName`, `RenderSkeleton` (types only) | `import type { … } from "@OpenDiagram/harness"`           | Allowed — `verbatimModuleSyntax` erases type imports, nothing ships to the browser |
-| `diagramTypeSchema` (a runtime value)                     | `import { … } from "@OpenDiagram/harness/diagram-schema"` | The lightweight subpath has no engine deps (elkjs, renderer, themes)               |
+| Client wants…                                             | Import this                                            | Why                                                                                |
+| --------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| `DiagramSpec`, `ThemeName`, `RenderSkeleton` (types only) | `import type { … } from "@opendraw/harness"`           | Allowed — `verbatimModuleSyntax` erases type imports, nothing ships to the browser |
+| `diagramTypeSchema` (a runtime value)                     | `import { … } from "@opendraw/harness/diagram-schema"` | The lightweight subpath has no engine deps (elkjs, renderer, themes)               |
 
 Rules of thumb:
 

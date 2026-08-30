@@ -7,8 +7,9 @@ import {
 } from "ai";
 import type { RefObject } from "react";
 import type { ExcalidrawImperativeAPI } from "@excalidraw/excalidraw/types";
-import type { ThemeName } from "@OpenDiagram/harness";
-import { env } from "@OpenDiagram/env/web";
+import type { ThemeName } from "@opendraw/harness";
+import { env } from "@opendraw/env/web";
+import { readMigratedLocalStorage } from "@/lib/brand-storage";
 import { toPromptDiagrams, type CanvasDiagram } from "@/lib/canvas-diagrams";
 import { readAiProviderUsage, type AiProviderUsage } from "@/lib/ai-provider-usage";
 import {
@@ -195,10 +196,11 @@ export function useDiagramChat(options: UseDiagramChatOptions) {
       return;
     }
 
-    const key = `opendiagram:auto-diagram:v3:${projectId ?? "guest"}:${fileId ?? "file"}:${autoDiagramPrompt.id}`;
+    const key = `opendraw:auto-diagram:v3:${projectId ?? "guest"}:${fileId ?? "file"}:${autoDiagramPrompt.id}`;
     if (seedAutoRunKeyRef.current === key) return;
-    const storageKey = `opendiagram:auto-diagram-complete:v1:${projectId ?? "guest"}:${fileId ?? "file"}:${autoDiagramPrompt.id}`;
-    if (window.localStorage.getItem(storageKey) === "complete") return;
+    const storageKey = `opendraw:auto-diagram-complete:v1:${projectId ?? "guest"}:${fileId ?? "file"}:${autoDiagramPrompt.id}`;
+    const legacyStorageKey = `opendiagram:auto-diagram-complete:v1:${projectId ?? "guest"}:${fileId ?? "file"}:${autoDiagramPrompt.id}`;
+    if (readMigratedLocalStorage(storageKey, legacyStorageKey) === "complete") return;
     seedAutoRunKeyRef.current = key;
     seedStorageKeyRef.current = storageKey;
     window.localStorage.setItem(storageKey, "started");

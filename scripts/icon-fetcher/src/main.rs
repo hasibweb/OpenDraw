@@ -363,7 +363,7 @@ fn cmd_gen_tags(input: &Path, output: &Path) -> Result<()> {
 
     eprintln!("Scanning {} files...", files.len());
 
-    let mut tag_file = String::from("# OpenDiagram Icon Registry — Tags\n");
+    let mut tag_file = String::from("# OpenDraw Icon Registry — Tags\n");
     tag_file.push_str("# Fill in category, tags, and keywords for each icon.\n");
     tag_file.push_str("# Tags help the AI match icons to concepts.\n");
     tag_file.push_str("# Keywords are synonyms for the icon name.\n\n");

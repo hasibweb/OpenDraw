@@ -29,7 +29,7 @@ function shell({ preview, bodyHtml, cta, footerHtml }: ShellInput): string {
   <body style="margin:0;padding:32px 16px;background:#f4f4f5;font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#18181b;">
     <div style="display:none;max-height:0;overflow:hidden;opacity:0;">${escapeHtml(preview)}</div>
     <div style="max-width:520px;margin:0 auto;background:#ffffff;border:1px solid #e4e4e7;border-radius:12px;padding:32px;">
-      <p style="margin:0 0 28px;font-size:17px;font-weight:600;letter-spacing:-0.01em;">OpenDiagram</p>
+      <p style="margin:0 0 28px;font-size:17px;font-weight:600;letter-spacing:-0.01em;">OpenDraw</p>
       ${bodyHtml}
       ${
         cta
@@ -45,7 +45,7 @@ function shell({ preview, bodyHtml, cta, footerHtml }: ShellInput): string {
       ${footerHtml ? `<p style="margin:28px 0 0;padding-top:20px;border-top:1px solid #f4f4f5;font-size:13px;line-height:1.6;color:#71717a;">${footerHtml}</p>` : ""}
     </div>
     <p style="max-width:520px;margin:16px auto 0;font-size:12px;line-height:1.6;color:#a1a1aa;text-align:center;">
-      OpenDiagram &middot; open-source AI workspace for software architecture
+      OpenDraw &middot; open-source AI workspace for software architecture
     </p>
   </body>
 </html>`;
@@ -62,12 +62,12 @@ function paragraph(html: string): string {
  */
 export function verificationEmail(input: { name?: string | null; url: string }): EmailBody {
   return {
-    subject: "Verify your OpenDiagram email",
+    subject: "Verify your OpenDraw email",
     html: shell({
       preview: "Confirm your address to unlock your monthly credits.",
       bodyHtml: [
         paragraph(greet(input.name)),
-        paragraph("Confirm your email address to unlock your monthly OpenDiagram credits."),
+        paragraph("Confirm your email address to unlock your monthly OpenDraw credits."),
       ].join("\n      "),
       cta: { label: "Verify email address", url: input.url },
       footerHtml: "This link expires in an hour. Didn't sign up? You can ignore this email.",
@@ -75,7 +75,7 @@ export function verificationEmail(input: { name?: string | null; url: string }):
     text: [
       greetText(input.name),
       "",
-      "Confirm your email address to unlock your monthly OpenDiagram credits:",
+      "Confirm your email address to unlock your monthly OpenDraw credits:",
       input.url,
       "",
       "This link expires in an hour. If you didn't sign up, you can ignore this.",
@@ -94,7 +94,7 @@ export function welcomeEmail(input: {
   credits: number;
 }): EmailBody {
   return {
-    subject: "Welcome to OpenDiagram",
+    subject: "Welcome to OpenDraw",
     html: shell({
       preview: `You're verified. ${input.credits} diagram credits are on your account.`,
       bodyHtml: [
@@ -133,12 +133,12 @@ export function welcomeEmail(input: {
 /** Sent on an explicit reset request only, so it names the request and the expiry. */
 export function passwordResetEmail(input: { name?: string | null; url: string }): EmailBody {
   return {
-    subject: "Reset your OpenDiagram password",
+    subject: "Reset your OpenDraw password",
     html: shell({
-      preview: "Set a new password for your OpenDiagram account.",
+      preview: "Set a new password for your OpenDraw account.",
       bodyHtml: [
         paragraph(greet(input.name)),
-        paragraph("Someone asked to reset the password on your OpenDiagram account."),
+        paragraph("Someone asked to reset the password on your OpenDraw account."),
       ].join("\n      "),
       cta: { label: "Set a new password", url: input.url },
       footerHtml:
@@ -147,7 +147,7 @@ export function passwordResetEmail(input: { name?: string | null; url: string })
     text: [
       greetText(input.name),
       "",
-      "Someone asked to reset the password on your OpenDiagram account.",
+      "Someone asked to reset the password on your OpenDraw account.",
       `Set a new password: ${input.url}`,
       "",
       "This link expires in an hour and can be used once. If you didn't request it,",

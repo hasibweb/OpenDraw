@@ -1,6 +1,6 @@
 import type { ExcalidrawElementSkeleton } from "@excalidraw/excalidraw/data/transform";
 import type { ExcalidrawImperativeAPI } from "@excalidraw/excalidraw/types";
-import type { RenderSkeleton } from "@OpenDiagram/harness";
+import type { RenderSkeleton } from "@opendraw/harness";
 
 const NEW_DIAGRAM_GAP = 160;
 // TUNABLE: when the current row of diagrams is wider than this, the next

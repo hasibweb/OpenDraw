@@ -1,4 +1,4 @@
-import { env } from "@OpenDiagram/env/web";
+import { env } from "@opendraw/env/web";
 import { encodeScene, resetSceneDelta, seedSceneDelta } from "@/lib/scene-delta";
 import { readProjectResponse } from "./http";
 import type { CreateProjectFileInput, SavedProjectFile, UpdateProjectFileInput } from "./types";

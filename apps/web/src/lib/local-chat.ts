@@ -1,5 +1,6 @@
 import { createStore, del, get, set } from "idb-keyval";
 import type { StoredChatMessage } from "@/lib/chat-history";
+import { migrateIndexedDBStore } from "@/lib/brand-storage";
 
 /**
  * Browser-side cache of the chat transcript for the file currently open.
@@ -23,7 +24,13 @@ import type { StoredChatMessage } from "@/lib/chat-history";
  * what is on screen, not the whole history of the file, so it does not grow with
  * how long the app has been used.
  */
-const chatStore = createStore("opendiagram-chat-db", "chat-store");
+const chatStore = createStore("opendraw-chat-db", "chat-store");
+let chatStoreMigration: Promise<void> | null = null;
+
+function ensureChatStoreMigration() {
+  chatStoreMigration ??= migrateIndexedDBStore("opendiagram-chat-db", "chat-store", chatStore);
+  return chatStoreMigration;
+}
 
 /**
  * Messages kept per file. Comfortably more than a panel shows before the user
@@ -41,6 +48,7 @@ export type LocalChat = {
 
 export async function readLocalChat(fileId: string): Promise<LocalChat | null> {
   try {
+    await ensureChatStoreMigration();
     return (await get<LocalChat>(fileId, chatStore)) ?? null;
   } catch {
     // A blocked or unavailable IndexedDB (private mode, storage pressure) must
@@ -55,6 +63,7 @@ export async function writeLocalChat(
   messages: StoredChatMessage[],
 ): Promise<void> {
   try {
+    await ensureChatStoreMigration();
     await set(
       fileId,
       {
@@ -74,6 +83,7 @@ export async function writeLocalChat(
 
 export async function deleteLocalChat(fileId: string): Promise<void> {
   try {
+    await ensureChatStoreMigration();
     await del(fileId, chatStore);
   } catch {
     /* nothing useful to do */

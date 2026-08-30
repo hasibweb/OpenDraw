@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from "react";
 import type { Dispatch, RefObject, SetStateAction } from "react";
-import { env } from "@OpenDiagram/env/web";
+import { env } from "@opendraw/env/web";
 import { saveGuestProjectDraft, type GuestProjectDraft } from "@/lib/guest-drafts";
 import { writeLocalScene } from "@/lib/local-scene";
 import { queueProjectFilePatch } from "@/lib/project-file-sync";

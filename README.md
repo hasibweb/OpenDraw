@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src=".github/assets/mascot.png" alt="OpenDiagram mascot - an octopus architect drawing a system architecture diagram on a blueprint" width="150" />
+<img src=".github/assets/mascot.png" alt="OpenDraw mascot - an octopus architect drawing a system architecture diagram on a blueprint" width="150" />
 
-<h1 align="center">OpenDiagram</h1>
+<h1 align="center">OpenDraw</h1>
 
 <h3 align="center">The open-source AI diagram generator for software architecture</h3>
 
@@ -16,39 +16,39 @@
 
 <p align="center">
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0" /></a>
-  <a href="https://github.com/Itz-Agasta/OpenDiagram/stargazers"><img src="https://img.shields.io/github/stars/Itz-Agasta/OpenDiagram?style=flat&color=yellow" alt="GitHub stars" /></a>
+  <a href="https://github.com/hasibweb/OpenDraw/stargazers"><img src="https://img.shields.io/github/stars/hasibweb/OpenDraw?style=flat&color=yellow" alt="GitHub stars" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript" /></a>
   <a href="https://bun.sh"><img src="https://img.shields.io/badge/Bun-000000?logo=bun&logoColor=white" alt="Bun" /></a>
   <a href="#contributing"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" /></a>
 </p>
 
 <p align="center">
-  <strong><a href="https://opendiagram.ink">Try it live</a></strong>
+  <strong><a href="https://draw.hasibweb.com">Try it live</a></strong>
   ·
   <a href="#getting-started">Getting Started</a>
   ·
-  <a href="#opendiagram-vs-other-ai-diagram-tools">Comparison</a>
+  <a href="#opendraw-vs-other-ai-diagram-tools">Comparison</a>
   ·
   <a href="#faq">FAQ</a>
   ·
   <a href="#contributing">Contributing</a>
 </p>
 
-<img src=".github/assets/demo.png" alt="OpenDiagram screenshot - an AI-generated GitHub system architecture diagram with load balancer, API gateway, Kafka message queue, Elasticsearch and PostgreSQL, rendered on an Excalidraw canvas" width="100%" />
+<img src=".github/assets/demo.png" alt="OpenDraw screenshot - an AI-generated GitHub system architecture diagram with load balancer, API gateway, Kafka message queue, Elasticsearch and PostgreSQL, rendered on an Excalidraw canvas" width="100%" />
 
 </div>
 
 ---
 
-## What is OpenDiagram?
+## What is OpenDraw?
 
-OpenDiagram is a free, open-source **AI diagram generator** built for engineers. Type a prompt like _"Design a microservices architecture for an e-commerce platform on AWS"_ and an AI agent designs the system, then draws it as clean, editable shapes on an Excalidraw whiteboard.
+OpenDraw is a free, open-source **AI diagram generator** built for engineers. Type a prompt like _"Design a microservices architecture for an e-commerce platform on AWS"_ and an AI agent designs the system, then draws it as clean, editable shapes on an Excalidraw whiteboard.
 
 It is **vibe diagramming** for software architecture: describe the system, look at it, refine it in conversation - the same loop vibe coding gave you for code, applied to design.
 
-Most AI diagram tools stop at generating Mermaid syntax. OpenDiagram doesn't. The AI emits a typed, semantic spec; a deterministic layout engine and renderer own every pixel. That is why the output looks like a senior engineer drew it instead of like generated boxes.
+Most AI diagram tools stop at generating Mermaid syntax. OpenDraw doesn't. The AI emits a typed, semantic spec; a deterministic layout engine and renderer own every pixel. That is why the output looks like a senior engineer drew it instead of like generated boxes.
 
-## Why OpenDiagram?
+## Why OpenDraw?
 
 Engineering teams scatter design work across tools: diagrams in one app, docs in another, ADRs in a wiki, and an AI chat that forgets everything between sessions.
 
@@ -85,9 +85,9 @@ Ship your own key for **OpenAI, Anthropic, Google or OpenRouter**, pick the mode
 
 Projects, files, a docs editor, GitHub repo import, and guest mode - try everything without an account.
 
-## OpenDiagram vs other AI diagram tools
+## OpenDraw vs other AI diagram tools
 
-|                           | **OpenDiagram**            | Eraser.io / DiagramGPT | draw.io | Mermaid   | Lucidchart  |
+|                           | **OpenDraw**               | Eraser.io / DiagramGPT | draw.io | Mermaid   | Lucidchart  |
 | ------------------------- | -------------------------- | ---------------------- | ------- | --------- | ----------- |
 | Open source               | ✅ Apache 2.0              | ❌                     | ✅      | ✅        | ❌          |
 | Self-hostable             | ✅                         | ❌                     | ✅      | ✅        | ❌          |
@@ -100,13 +100,13 @@ Projects, files, a docs editor, GitHub repo import, and guest mode - try everyth
 
 ## Getting Started
 
-Try it instantly at **[opendiagram.ink](https://opendiagram.ink)** - no account needed. Or self-host the whole thing:
+Try it instantly at **[draw.hasibweb.com](https://draw.hasibweb.com)** - no account needed. Or self-host the whole thing:
 
 **Prerequisites:** [Bun](https://bun.sh) 1.3+ and a PostgreSQL database.
 
 ```bash
-git clone https://github.com/Itz-Agasta/OpenDiagram.git
-cd OpenDiagram
+git clone https://github.com/hasibweb/OpenDraw.git
+cd OpenDraw
 just reinstall
 
 cp .env.sample apps/server/.env
@@ -115,6 +115,31 @@ bun run dev
 ```
 
 Web runs on `:3001`, API on `:3000`, docs on `:4000`. Open <http://localhost:3001>, create a project (no login needed), and ask for a diagram.
+
+### GitHub login and repository import
+
+Create a GitHub OAuth App under **GitHub Settings → Developer settings → OAuth Apps**. Use the repository URL as the homepage and register both callback URLs when you use local and hosted environments:
+
+```text
+http://localhost:3000/api/auth/callback/github
+https://draw.hasibweb.com/api/auth/callback/github
+```
+
+Copy its client ID and client secret into `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` in `apps/server/.env`, then restart the server. OpenDraw requests only `read:user` and `user:email`; repository import is intentionally limited to public repositories.
+
+For the production same-origin deployment, route `/api/*` through the Next.js app to the Hono service:
+
+```dotenv
+NEXT_PUBLIC_SERVER_URL=https://draw.hasibweb.com
+API_UPSTREAM_URL=https://your-hono-service.example.com
+BETTER_AUTH_URL=https://draw.hasibweb.com
+CORS_ORIGIN=https://draw.hasibweb.com
+```
+
+Leave `COOKIE_DOMAIN` unset. To deliver verification and password-reset email, verify `hasibweb.com` in Resend and set `RESEND_FROM="OpenDraw <support@hasibweb.com>"`.
+
+For the production GitHub Actions, GHCR, Coolify Compose, managed PostgreSQL,
+backup, and rollback setup, follow [the Coolify deployment guide](docs/COOLIFY_DEPLOYMENT.md).
 
 ## Roadmap
 
@@ -134,29 +159,29 @@ Web runs on `:3001`, API on `:3000`, docs on `:4000`. Open <http://localhost:300
 
 ### Is there an open-source alternative to Eraser.io?
 
-Yes - OpenDiagram. It is Apache 2.0 licensed, self-hostable, and generates system architecture, sequence and ER diagrams from natural language. Unlike Eraser, the output is native Excalidraw elements you fully own and can edit anywhere.
+Yes - OpenDraw. It is Apache 2.0 licensed, self-hostable, and generates system architecture, sequence and ER diagrams from natural language. Unlike Eraser, the output is native Excalidraw elements you fully own and can edit anywhere.
 
 ### Can AI generate architecture diagrams from text?
 
-Yes. OpenDiagram takes a plain-English description of a system and produces a laid-out architecture diagram with real cloud provider icons, grouped boundaries and labeled connections. Ambiguous prompts get a clarifying question instead of a wrong guess.
+Yes. OpenDraw takes a plain-English description of a system and produces a laid-out architecture diagram with real cloud provider icons, grouped boundaries and labeled connections. Ambiguous prompts get a clarifying question instead of a wrong guess.
 
 ### How is this different from AI tools that generate Mermaid?
 
-Mermaid-based tools hand the LLM a text syntax and let its renderer decide the layout, so you get generic boxes and arrows that engineers redraw by hand. OpenDiagram separates concerns: the LLM only decides _what_ the system contains, and a deterministic layout engine plus a themed renderer decide _how it looks_.
+Mermaid-based tools hand the LLM a text syntax and let its renderer decide the layout, so you get generic boxes and arrows that engineers redraw by hand. OpenDraw separates concerns: the LLM only decides _what_ the system contains, and a deterministic layout engine plus a themed renderer decide _how it looks_.
 
 ### What is vibe diagramming?
 
-Vibe diagramming is describing a system, flow or process in plain language and letting AI render it instantly, then iterating conversationally instead of dragging shapes. OpenDiagram is the open-source, engineer-focused take on it - built for architecture diagrams specifically, not generic charts.
+Vibe diagramming is describing a system, flow or process in plain language and letting AI render it instantly, then iterating conversationally instead of dragging shapes. OpenDraw is the open-source, engineer-focused take on it - built for architecture diagrams specifically, not generic charts.
 
-### Can I self-host OpenDiagram?
+### Can I self-host OpenDraw?
 
 Yes. The entire stack - Next.js web app, Hono API and diagram engine - is Apache 2.0 and runs on your own infrastructure. You supply your own database and AI provider key.
 
 ### Which AI models are supported?
 
-OpenDiagram is provider-agnostic. Bring your own key for OpenAI, Anthropic, Google or OpenRouter, and pick the model per project.
+OpenDraw is provider-agnostic. Bring your own key for OpenAI, Anthropic, Google or OpenRouter, and pick the model per project.
 
-### Is OpenDiagram free?
+### Is OpenDraw free?
 
 Yes, and it always will be. Apache 2.0, no open-core tricks on the diagram engine.
 
@@ -177,11 +202,11 @@ Found a security issue? Please follow [SECURITY.md](./SECURITY.md) instead of op
 <div align="center">
 
 <p align="center">
-  <strong>If OpenDiagram saved you an hour of dragging boxes, consider starring the repo ⭐</strong>
+  <strong>If OpenDraw saved you an hour of dragging boxes, consider starring the repo ⭐</strong>
 </p>
 
 <p align="center">
-  <a href="https://github.com/Itz-Agasta/OpenDiagram/stargazers"><img src="https://img.shields.io/github/stars/Itz-Agasta/OpenDiagram?style=social" alt="Star OpenDiagram on GitHub" /></a>
+  <a href="https://github.com/hasibweb/OpenDraw/stargazers"><img src="https://img.shields.io/github/stars/hasibweb/OpenDraw?style=social" alt="Star OpenDraw on GitHub" /></a>
 </p>
 
 <p align="center">

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { UIMessage } from "ai";
 import type { ExcalidrawImperativeAPI } from "@excalidraw/excalidraw/types";
-import type { DiagramSpec } from "@OpenDiagram/harness";
+import type { DiagramSpec } from "@opendraw/harness";
 import { applyDiagramToCanvas } from "@/lib/excalidraw-utils";
 import { upsertCanvasDiagram, type CanvasDiagram } from "@/lib/canvas-diagrams";
 import type { DrawDiagramOutput } from "./types";

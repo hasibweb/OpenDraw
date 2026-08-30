@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import type { ChatStatus } from "ai";
-import type { ThemeName } from "@OpenDiagram/harness";
+import type { ThemeName } from "@opendraw/harness";
 import type { AiProviderUsage } from "@/lib/ai-provider-usage";
 import type { AIChatProviderOption } from "./types";
 import {

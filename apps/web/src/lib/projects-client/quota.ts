@@ -1,4 +1,4 @@
-import { env } from "@OpenDiagram/env/web";
+import { env } from "@opendraw/env/web";
 import { CreationQuotaError, projectResponseError, readProjectResponse } from "./http";
 import type { CreationQuota } from "./types";
 

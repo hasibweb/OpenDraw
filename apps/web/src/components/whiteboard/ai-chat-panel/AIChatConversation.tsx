@@ -1,6 +1,6 @@
 import { CheckCircle2, Loader2, Sparkles } from "lucide-react";
 import type { ChatStatus, UIMessage } from "ai";
-import type { DiagramSpec } from "@OpenDiagram/harness";
+import type { DiagramSpec } from "@opendraw/harness";
 import type { StoredAskUserInput } from "@/lib/chat-history";
 import type { RepoGenerationJob } from "@/lib/projects-client";
 import { Button } from "@/components/ui/button";

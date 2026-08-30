@@ -1,6 +1,6 @@
 import { createGoogle } from "@ai-sdk/google";
-import { diagramSpecSchema, type DiagramSpec, type DiagramType } from "@OpenDiagram/harness";
-import { env } from "@OpenDiagram/env/server";
+import { diagramSpecSchema, type DiagramSpec, type DiagramType } from "@opendraw/harness";
+import { env } from "@opendraw/env/server";
 import { generateObject, generateText, NoObjectGeneratedError, type LanguageModel } from "ai";
 import { buildIconCatalog, normalizeSpecIcons } from "./icons/registry";
 import { aiTelemetry } from "./telemetry";
@@ -194,7 +194,7 @@ export async function generateGroundedProjectAnswer(
   const result = await generateText({
     model: modelFor(options),
     system: [
-      "You are OpenDiagram's project assistant.",
+      "You are OpenDraw's project assistant.",
       "Answer using only the provided project context.",
       "If the context is insufficient, say what is missing and suggest what the user can add to the project.",
       "Keep answers concise, specific, and grounded in the project's diagrams, docs, and files.",

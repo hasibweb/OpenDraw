@@ -1,8 +1,8 @@
-opendiagram:
-  name: OpenDiagram Team
-  title: Maintainers of OpenDiagram
+opendraw:
+  name: OpenDraw Team
+  title: Maintainers of OpenDraw
   image_url: /brand/mascot.png
-  url: https://opendiagram.ink
+  url: https://draw.hasibweb.com
   page: true
   socials:
-    github: Itz-Agasta/OpenDiagram
+    github: hasibweb/OpenDraw

@@ -3,9 +3,9 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "OpenDiagram",
+      "name": "opendraw",
       "dependencies": {
-        "@OpenDiagram/env": "workspace:*",
+        "@opendraw/env": "workspace:*",
         "@phosphor-icons/react": "^2.1.10",
         "dotenv": "catalog:",
         "elkjs": "^0.11.1",
@@ -14,7 +14,7 @@
         "zod": "catalog:",
       },
       "devDependencies": {
-        "@OpenDiagram/config": "workspace:*",
+        "@opendraw/config": "workspace:*",
         "@types/bun": "catalog:",
         "@typescript/native-preview": "latest",
         "oxfmt": "^0.53.0",
@@ -64,14 +64,14 @@
     "apps/server": {
       "name": "server",
       "dependencies": {
-        "@OpenDiagram/auth": "workspace:*",
-        "@OpenDiagram/db": "workspace:*",
-        "@OpenDiagram/env": "workspace:*",
-        "@OpenDiagram/harness": "workspace:*",
         "@ai-sdk/anthropic": "^4.0.18",
         "@ai-sdk/google": "^4.0.5",
         "@ai-sdk/openai": "^4.0.5",
         "@ai-sdk/otel": "^1.0.37",
+        "@opendraw/auth": "workspace:*",
+        "@opendraw/db": "workspace:*",
+        "@opendraw/env": "workspace:*",
+        "@opendraw/harness": "workspace:*",
         "@openrouter/ai-sdk-provider": "^3.0.0",
         "@sentry/bun": "10.68.0",
         "@sentry/hono": "10.68.0",
@@ -88,7 +88,7 @@
         "zod": "catalog:",
       },
       "devDependencies": {
-        "@OpenDiagram/config": "workspace:*",
+        "@opendraw/config": "workspace:*",
         "@types/bun": "catalog:",
         "tsdown": "^0.21.9",
         "typescript": "catalog:",
@@ -98,12 +98,13 @@
       "name": "web",
       "version": "0.1.0",
       "dependencies": {
-        "@OpenDiagram/env": "workspace:*",
-        "@OpenDiagram/harness": "workspace:*",
         "@ai-sdk/react": "^4.0.5",
         "@excalidraw/excalidraw": "^0.18.1",
+        "@fumadocs/tailwind": "0.0.5",
         "@milkdown/crepe": "catalog:",
         "@milkdown/kit": "catalog:",
+        "@opendraw/env": "workspace:*",
+        "@opendraw/harness": "workspace:*",
         "@radix-ui/react-dialog": "^1.1.17",
         "@radix-ui/react-dropdown-menu": "^2.1.18",
         "@radix-ui/react-hover-card": "^1.1.17",
@@ -153,7 +154,7 @@
         "zustand": "catalog:",
       },
       "devDependencies": {
-        "@OpenDiagram/config": "workspace:*",
+        "@opendraw/config": "workspace:*",
         "@tailwindcss/postcss": "catalog:",
         "@types/lodash.throttle": "catalog:",
         "@types/node": "^20",
@@ -164,10 +165,10 @@
       },
     },
     "packages/auth": {
-      "name": "@OpenDiagram/auth",
+      "name": "@opendraw/auth",
       "dependencies": {
-        "@OpenDiagram/db": "workspace:*",
-        "@OpenDiagram/env": "workspace:*",
+        "@opendraw/db": "workspace:*",
+        "@opendraw/env": "workspace:*",
         "better-auth": "catalog:",
         "dotenv": "catalog:",
         "evlog": "catalog:",
@@ -175,32 +176,32 @@
         "zod": "catalog:",
       },
       "devDependencies": {
-        "@OpenDiagram/config": "workspace:*",
+        "@opendraw/config": "workspace:*",
         "typescript": "catalog:",
       },
     },
     "packages/config": {
-      "name": "@OpenDiagram/config",
+      "name": "@opendraw/config",
       "version": "0.0.0",
     },
     "packages/db": {
-      "name": "@OpenDiagram/db",
+      "name": "@opendraw/db",
       "dependencies": {
-        "@OpenDiagram/env": "workspace:*",
+        "@opendraw/env": "workspace:*",
         "dotenv": "catalog:",
         "drizzle-orm": "catalog:",
         "pg": "catalog:",
         "zod": "catalog:",
       },
       "devDependencies": {
-        "@OpenDiagram/config": "workspace:*",
+        "@opendraw/config": "workspace:*",
         "@types/pg": "^8.16.0",
         "drizzle-kit": "^0.31.8",
         "typescript": "catalog:",
       },
     },
     "packages/env": {
-      "name": "@OpenDiagram/env",
+      "name": "@opendraw/env",
       "version": "0.0.0",
       "dependencies": {
         "@t3-oss/env-core": "^0.13.1",
@@ -209,13 +210,13 @@
         "zod": "catalog:",
       },
       "devDependencies": {
-        "@OpenDiagram/config": "workspace:*",
+        "@opendraw/config": "workspace:*",
         "@types/bun": "catalog:",
         "typescript": "catalog:",
       },
     },
     "packages/harness": {
-      "name": "@OpenDiagram/harness",
+      "name": "@opendraw/harness",
       "version": "0.0.1",
       "dependencies": {
         "elkjs": "^0.11.1",
@@ -251,16 +252,6 @@
     "zustand": "^5.0.14",
   },
   "packages": {
-    "@OpenDiagram/auth": ["@OpenDiagram/auth@workspace:packages/auth"],
-
-    "@OpenDiagram/config": ["@OpenDiagram/config@workspace:packages/config"],
-
-    "@OpenDiagram/db": ["@OpenDiagram/db@workspace:packages/db"],
-
-    "@OpenDiagram/env": ["@OpenDiagram/env@workspace:packages/env"],
-
-    "@OpenDiagram/harness": ["@OpenDiagram/harness@workspace:packages/harness"],
-
     "@ai-sdk/anthropic": ["@ai-sdk/anthropic@4.0.23", "", { "dependencies": { "@ai-sdk/provider": "4.0.4", "@ai-sdk/provider-utils": "5.0.14" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-9sky++sOcQ3V38XWqPpiLIe4knjWREOUEv3ZOZZ9mTQepb2Ho60NUFGR/0NxQlTHEW9G0zxciEecySNE/iHdVQ=="],
 
     "@ai-sdk/gateway": ["@ai-sdk/gateway@3.0.158", "", { "dependencies": { "@ai-sdk/provider": "3.0.14", "@ai-sdk/provider-utils": "4.0.40", "@vercel/oidc": "3.2.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-7yQXeK84iQTwlvPi+02kfde9mtr9/yMUOxcbuByK8qKLZnzRN+equz3vXk8MeSe6OW3VVWx+j24nqrwRHRv5Rw=="],
@@ -716,6 +707,16 @@
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
 
     "@ocavue/utils": ["@ocavue/utils@1.7.0", "", {}, "sha512-yEk9ATNBjTZTtuVFMB/MAIF6zJBvJ2+lVNQvK2+O+ggEBGTgx2tp27d4FPgmD5bRsNHHP3D0SleQia/bvIeV8w=="],
+
+    "@opendraw/auth": ["@opendraw/auth@workspace:packages/auth"],
+
+    "@opendraw/config": ["@opendraw/config@workspace:packages/config"],
+
+    "@opendraw/db": ["@opendraw/db@workspace:packages/db"],
+
+    "@opendraw/env": ["@opendraw/env@workspace:packages/env"],
+
+    "@opendraw/harness": ["@opendraw/harness@workspace:packages/harness"],
 
     "@openrouter/ai-sdk-provider": ["@openrouter/ai-sdk-provider@2.10.0", "", { "peerDependencies": { "ai": "^6.0.0", "zod": "^3.25.0 || ^4.0.0" } }, "sha512-FMsAEjLUt5pWuRE2LDC/LCvVrFjLlrEzUITH5+5SZtfq7KZ2wrOHjQVxzz92sju8S9ltpzW87CLW8/b0oBXVCw=="],
 

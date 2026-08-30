@@ -142,7 +142,7 @@ export function AgentInputPanel({ creating, onSubmit, signedIn }: AgentInputPane
             ))}
           </div>
           <label className="mt-3 block">
-            <span className="sr-only">Describe what OpenDiagram should create</span>
+            <span className="sr-only">Describe what OpenDraw should create</span>
             <textarea
               value={prompt}
               onChange={(event) => setPrompt(event.target.value)}

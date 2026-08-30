@@ -1,4 +1,4 @@
-import type { DiagramSpec } from "@OpenDiagram/harness";
+import type { DiagramSpec } from "@opendraw/harness";
 import type { AiProviderUsage } from "@/lib/ai-provider-usage";
 import { chatWithProject } from "@/lib/projects-client";
 

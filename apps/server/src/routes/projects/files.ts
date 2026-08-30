@@ -1,5 +1,5 @@
-import { and, db, desc, eq, exists } from "@OpenDiagram/db";
-import { project, projectFile, projectFileContent } from "@OpenDiagram/db/schema/projects";
+import { and, db, desc, eq, exists } from "@opendraw/db";
+import { project, projectFile, projectFileContent } from "@opendraw/db/schema/projects";
 import { Hono } from "hono";
 import { z } from "zod";
 import {

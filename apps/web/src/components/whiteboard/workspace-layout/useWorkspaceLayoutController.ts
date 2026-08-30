@@ -190,7 +190,7 @@ export function useWorkspaceLayoutController() {
 
   const accountName = session.data?.user?.name || session.data?.user?.email || "Guest";
   const hasCurrentProjectSnapshot = storedProjectId === params.projectId;
-  const sidebarProjectName = hasCurrentProjectSnapshot ? projectName : "OpenDiagram";
+  const sidebarProjectName = hasCurrentProjectSnapshot ? projectName : "OpenDraw";
   const sidebarFilesForProject = hasCurrentProjectSnapshot ? sidebarFiles : [];
   const activeFileName =
     activeFile?.name ??

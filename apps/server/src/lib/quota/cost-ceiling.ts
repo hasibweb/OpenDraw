@@ -8,12 +8,12 @@
  * too and refunds only the credit; releasing to zero is reserved for a call that
  * never reached the model, which is what stops a 503 from charging for nothing.
  */
-import { and, db, eq, notInArray, sql } from "@OpenDiagram/db";
+import { and, db, eq, notInArray, sql } from "@opendraw/db";
 import {
   MICROS_PER_CENT,
   UNCHARGED_LEDGER_STATUSES,
   usageLedger,
-} from "@OpenDiagram/db/schema/billing";
+} from "@opendraw/db/schema/billing";
 import type { CreationQuotaActor } from "./actor";
 import { CostCeilingExceededError } from "./errors";
 

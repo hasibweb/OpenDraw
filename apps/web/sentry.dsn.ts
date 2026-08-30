@@ -1,4 +1,4 @@
-import { env } from "@OpenDiagram/env/web";
+import { env } from "@opendraw/env/web";
 
 // Public Sentry DSN for the web project. It ships in the client bundle, so it is
 // not a secret. Single source of truth: the three Sentry runtime configs and the
