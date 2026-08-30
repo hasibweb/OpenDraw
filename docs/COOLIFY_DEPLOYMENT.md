@@ -27,9 +27,8 @@ sessions, projects, or diagrams.
    `/docker-compose.yml`.
 2. Turn off Coolify's Git-triggered automatic deployment. GitHub Actions queues
    the deployment only after checks and both images have been published.
-3. Enable **Connect to Predefined Network** for both the Compose application and
-   PostgreSQL resource. Keep both resources in the same Coolify project and
-   environment.
+3. Keep the Compose file's external `coolify` network block. The application
+   services use it to reach the standalone PostgreSQL resource.
 4. Assign `https://draw.hasibweb.com` to the `web` service on port 3001. Do not
    assign a public domain or port to `server` or `db-setup`.
 5. Point the DNS record for `draw.hasibweb.com` to the Coolify server and confirm
@@ -102,10 +101,12 @@ ghcr.io/hasibweb/opendraw-web
 ghcr.io/hasibweb/opendraw-server
 ```
 
-The first queued Coolify deployment can fail until that one-time visibility
-change is complete. Redeploy it after both packages are public. Later pushes to
-`main` publish `main` and immutable commit-SHA tags, trigger Coolify, and wait up
-to ten minutes for both health endpoints to report the expected SHA.
+The Compose file uses `pull_policy: always`, so each deployment pulls the latest
+`main` image before starting containers. The first queued Coolify deployment can
+fail until that one-time visibility change is complete. Redeploy it after both
+packages are public. Later pushes to `main` publish `main` and immutable
+commit-SHA tags, trigger Coolify, and wait up to ten minutes for both health
+endpoints to report the expected SHA.
 
 ## 5. Verify and roll back
 
