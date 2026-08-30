@@ -5,7 +5,8 @@
 }
 
 .visual-image {
-  object-fit: fill;
+  object-fit: cover;
+  object-position: center;
 }
 
 .visual-label {

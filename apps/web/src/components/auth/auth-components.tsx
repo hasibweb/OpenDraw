@@ -109,8 +109,8 @@ export function VisualPane({ _isSignup }: { _isSignup: boolean }) {
   return (
     <div className="pane-visual">
       <Image
-        src={assetUrl("/auth/flower.jpg")}
-        alt="Annotated flower architecture study"
+        src={assetUrl("/marketing/homepage-showcase.png")}
+        alt="OpenDraw architecture diagram workspace preview"
         fill
         priority
         sizes="50vw"
