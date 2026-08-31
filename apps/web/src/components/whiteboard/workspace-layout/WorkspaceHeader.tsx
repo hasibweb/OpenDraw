@@ -1,4 +1,5 @@
-import { PanelLeftOpen, PanelRightOpen } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, PanelLeftOpen, PanelRightOpen } from "lucide-react";
 import type { SaveStatus } from "./helpers";
 
 type WorkspaceHeaderProps = {
@@ -13,6 +14,7 @@ type WorkspaceHeaderProps = {
   saveStatus: SaveStatus;
   hasWorkspace: boolean;
   onBeginEditName: () => void;
+  onBackToDashboard: () => void | Promise<void>;
   onCancelName: () => void;
   onCommitName: () => void;
   onNameDraftChange: (value: string) => void;
@@ -34,6 +36,7 @@ export function WorkspaceHeader({
   saveStatus,
   hasWorkspace,
   onBeginEditName,
+  onBackToDashboard,
   onCancelName,
   onCommitName,
   onNameDraftChange,
@@ -46,6 +49,18 @@ export function WorkspaceHeader({
   return (
     <header className="flex h-14 shrink-0 items-center justify-between gap-4 border-b border-od-border-soft bg-white px-4">
       <div className="flex min-w-0 items-center gap-3">
+        <Link
+          href="/dashboard"
+          onClick={(event) => {
+            event.preventDefault();
+            void onBackToDashboard();
+          }}
+          className="grid h-8 w-8 shrink-0 place-items-center rounded-[8px] border border-od-border-soft text-od-ink-faint transition hover:bg-od-canvas/45 hover:text-od-ink"
+          aria-label="Back to dashboard"
+          title="Back to dashboard"
+        >
+          <ArrowLeft className="h-4 w-4" />
+        </Link>
         {isSignedIn && !isSidebarOpen && (
           <button
             type="button"

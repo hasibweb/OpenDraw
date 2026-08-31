@@ -72,6 +72,7 @@ export function WorkspaceLayout() {
           isSignedIn={state.isSignedIn}
           nameDraft={state.nameDraft}
           onBeginEditName={actions.beginEditName}
+          onBackToDashboard={actions.navigateToDashboard}
           onCancelName={actions.cancelName}
           onCommitName={() => void actions.commitName()}
           onNameDraftChange={actions.setNameDraft}
